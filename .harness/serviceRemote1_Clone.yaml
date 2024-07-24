@@ -6,5 +6,23 @@ service:
   tags: {}
   name: serviceRemote1 - Clone
   serviceDefinition:
-    spec: {}
+    spec:
+      manifests:
+        - manifest:
+            identifier: m1
+            type: HelmChart
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubSelf
+                  gitFetchType: Branch
+                  folderPath: /
+                  repoName: remoteInlineTestRepoPublic
+                  branch: <+input>
+              subChartPath: ""
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              helmVersion: V3
+              fetchHelmChartMetadata: false
     type: NativeHelm
