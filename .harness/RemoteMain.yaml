@@ -1,0 +1,6 @@
+environment:
+  name: RemoteMain
+  identifier: RemoteMain
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: MayankRemoteEntitiesTest
+  type: Production
