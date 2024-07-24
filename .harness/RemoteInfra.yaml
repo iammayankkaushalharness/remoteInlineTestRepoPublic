@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: RemoteInfra
+  identifier: RemoteInfra
+  orgIdentifier: default
+  projectIdentifier: MayankCloneInlineTests
+  environmentRef: RemoteEnvMayank
+  deploymentType: ServerlessAwsLambda
+  type: ServerlessAwsLambda
+  spec:
+    connectorRef: <+input>
+    stage: <+input>
+    region: <+input>
+  allowSimultaneousDeployments: false
