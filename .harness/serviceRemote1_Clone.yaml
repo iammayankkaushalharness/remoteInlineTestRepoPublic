@@ -1,0 +1,8 @@
+---
+service:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "MayankRemoteEntitiesTest"
+  identifier: "serviceRemote1_Clone"
+  description: ""
+  tags: {}
+  name: "serviceRemote1 - Clone"
