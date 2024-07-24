@@ -1,0 +1,5 @@
+service:
+  name: serviceRemote1
+  identifier: serviceRemote1
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: MayankRemoteEntitiesTest
