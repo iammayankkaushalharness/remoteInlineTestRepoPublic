@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "default"
+  projectIdentifier: "MayankCloneInlineTests"
+  type: "PreProduction"
+  identifier: "RemoteEnvMayank_Clone"
+  tags: {}
+  name: "RemoteEnvMayank - Clone"
