@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: Infra1
+  identifier: Infra1
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: MayankRemoteEntitiesTest
+  environmentRef: MayankRemoteEnv
+  deploymentType: ServerlessAwsLambda
+  type: ServerlessAwsLambda
+  spec:
+    connectorRef: org.ECRConnectorForAutomationTest
+    stage: helloMayank
+    region: us-gov-east-1
+  allowSimultaneousDeployments: false
