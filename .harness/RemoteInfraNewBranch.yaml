@@ -1,0 +1,6 @@
+environment:
+  name: RemoteInfraNewBranch
+  identifier: RemoteInfraNewBranch
+  orgIdentifier: default
+  projectIdentifier: MayankCloneInlineTests
+  type: PreProduction
