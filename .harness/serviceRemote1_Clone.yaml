@@ -1,8 +1,10 @@
----
 service:
-  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
-  projectIdentifier: "MayankRemoteEntitiesTest"
-  identifier: "serviceRemote1_Clone"
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: MayankRemoteEntitiesTest
+  identifier: serviceRemote1_Clone
   description: ""
   tags: {}
-  name: "serviceRemote1 - Clone"
+  name: serviceRemote1 - Clone
+  serviceDefinition:
+    spec: {}
+    type: NativeHelm
