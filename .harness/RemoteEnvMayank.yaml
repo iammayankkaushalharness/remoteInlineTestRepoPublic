@@ -1,0 +1,6 @@
+environment:
+  name: RemoteEnvMayank
+  identifier: RemoteEnvMayank
+  orgIdentifier: default
+  projectIdentifier: MayankCloneInlineTests
+  type: PreProduction
