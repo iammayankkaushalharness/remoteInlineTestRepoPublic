@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "MayankRemoteEntitiesTest"
+  type: "PreProduction"
+  identifier: "Mayank3"
+  tags: {}
+  name: "Mayank3"
