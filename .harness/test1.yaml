@@ -1,0 +1,27 @@
+---
+service:
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "<+input>"
+          sources:
+          - spec:
+              connectorRef: "account.harnessImage"
+              imagePath: "library/nginx"
+              tag: "<+input>"
+              digest: ""
+            identifier: "test"
+            type: "DockerRegistry"
+      variables:
+      - name: "test2"
+        type: "String"
+        description: ""
+        required: false
+        value: "13131"
+    type: "Kubernetes"
+  projectIdentifier: "Ramya"
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  identifier: "test12"
+  tags: {}
+  name: "test12"
