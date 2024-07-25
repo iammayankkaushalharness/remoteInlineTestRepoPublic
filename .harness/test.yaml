@@ -16,4 +16,10 @@ service:
                 digest: ""
               identifier: test
               type: DockerRegistry
+      variables:
+        - name: test2
+          type: String
+          description: ""
+          required: false
+          value: "13131"
     type: Kubernetes
