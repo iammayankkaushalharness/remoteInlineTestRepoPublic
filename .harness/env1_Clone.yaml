@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "default"
+  projectIdentifier: "chetan"
+  type: "Production"
+  identifier: "env1_Clone"
+  tags: {}
+  name: "env1 - Clone"
