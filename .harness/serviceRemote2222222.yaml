@@ -1,0 +1,24 @@
+---
+service:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "MayankRemoteEntitiesTest"
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary: {}
+      manifests:
+      - manifest:
+          identifier: "m1"
+          type: "K8sManifest"
+          spec:
+            store:
+              type: "Harness"
+              spec:
+                files:
+                - "/project"
+            skipResourceVersioning: false
+            enableDeclarativeRollback: false
+    type: "Kubernetes"
+  tags: {}
+  identifier: "serviceRemote2222222"
+  name: "serviceRemote2222222"
