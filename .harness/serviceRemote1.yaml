@@ -3,3 +3,17 @@ service:
   identifier: serviceRemote1
   orgIdentifier: Ng_Pipelines_K8s_Organisations
   projectIdentifier: MayankRemoteEntitiesTest
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: fgs
+                imagePath: <+input>
+                tag: <+input>
+                digest: <+input>
+              identifier: dffd
+              type: DockerRegistry
+    type: Kubernetes
