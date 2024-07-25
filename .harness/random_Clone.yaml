@@ -1,0 +1,22 @@
+---
+service:
+  orgIdentifier: "default"
+  projectIdentifier: "chetan"
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "<+input>"
+          sources:
+          - spec:
+              connectorRef: "account.harnessImage"
+              imagePath: "library/nginx"
+              tag: "<+input>"
+              digest: ""
+            identifier: "test"
+            type: "DockerRegistry"
+    type: "Kubernetes"
+  description: ""
+  tags: {}
+  identifier: "random_Clone"
+  name: "random - Clone"
