@@ -1,21 +1,23 @@
----
 service:
-  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
-  projectIdentifier: "MayankRemoteEntitiesTest"
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: MayankRemoteEntitiesTest
   serviceDefinition:
     spec:
       artifacts:
-        primary:
-          primaryArtifactRef: "<+input>"
-          sources:
-          - spec:
-              connectorRef: "fgs"
-              imagePath: "<+input>"
-              tag: "<+input>"
-              digest: "<+input>"
-            identifier: "dffd"
-            type: "DockerRegistry"
-    type: "Kubernetes"
-  identifier: "serviceRemote2Grid"
+        primary: {}
+      manifests:
+        - manifest:
+            identifier: m1
+            type: K8sManifest
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /project
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
+  identifier: serviceRemote2Grid
   tags: {}
-  name: "serviceRemote2Grid"
+  name: serviceRemote2Grid
