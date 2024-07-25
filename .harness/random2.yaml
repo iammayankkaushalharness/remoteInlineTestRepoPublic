@@ -1,0 +1,22 @@
+---
+service:
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "<+input>"
+          sources:
+          - spec:
+              connectorRef: "account.harnessImage"
+              imagePath: "library/nginx"
+              tag: "<+input>"
+              digest: ""
+            identifier: "test"
+            type: "DockerRegistry"
+    type: "Kubernetes"
+  description: ""
+  tags: {}
+  projectIdentifier: "chetan2"
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  identifier: "random2"
+  name: "random2"
