@@ -1,0 +1,28 @@
+---
+service:
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "<+input>"
+          sources:
+          - spec:
+              connectorRef: "account.harnessImage"
+              imagePath: "library/nginx"
+              tag: "<+input>"
+              digest: ""
+            identifier: "test"
+            type: "DockerRegistry"
+      variables:
+      - name: "ww"
+        type: "String"
+        description: ""
+        required: false
+        value: "222"
+    type: "Kubernetes"
+  description: ""
+  tags: {}
+  projectIdentifier: "chetan"
+  orgIdentifier: "default"
+  identifier: "random2_Clone"
+  name: "random2 - Clone"
