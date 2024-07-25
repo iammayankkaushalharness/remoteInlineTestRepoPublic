@@ -1,0 +1,7 @@
+---
+environment:
+  type: "Production"
+  tags: {}
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  identifier: "RemoteMainAccount2Org"
+  name: "RemoteMainAccount2Org"
