@@ -1,0 +1,13 @@
+service:
+  name: MayankService
+  identifier: MayankService
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  description: opadescription
+  tags:
+    opatag: ""
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+    type: Kubernetes
