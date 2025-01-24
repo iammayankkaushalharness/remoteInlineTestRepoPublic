@@ -1,0 +1,40 @@
+---
+service:
+  serviceDefinition:
+    type: "AWS_SAM"
+    spec:
+      manifests:
+      - manifest:
+          identifier: "m1"
+          type: "AwsSamDirectory"
+          spec:
+            store:
+              type: "S3"
+              spec:
+                connectorRef: "org.AWSConnectorForAutomationTest"
+                region: "us-east-1"
+                bucketName: "sam-manifest-root"
+                paths:
+                - "AWS_SAM_TESTS/sam-nodejs-multi-step"
+      - manifest:
+          identifier: "m2"
+          type: "Values"
+          spec:
+            store:
+              type: "Harness"
+              spec:
+                files:
+                - "/values.yaml"
+      variables:
+      - name: "mayank1"
+        type: "String"
+        description: ""
+        required: false
+        value: "Mayank"
+  gitOpsEnabled: false
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  description: ""
+  tags: {}
+  identifier: "SamService_fZUjl_Clone_Clone"
+  name: "Mayankss - Clone - Clone"
