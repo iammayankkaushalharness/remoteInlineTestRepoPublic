@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: MayankTest
+  identifier: MayankTest
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  environmentRef: k8s_cfd
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>
+    releaseName: <+input>
+  allowSimultaneousDeployments: false
