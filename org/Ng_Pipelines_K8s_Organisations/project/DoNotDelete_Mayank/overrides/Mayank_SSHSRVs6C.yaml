@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: ritek_variable
+      type: String
+      value: <+input>
+      required: false
