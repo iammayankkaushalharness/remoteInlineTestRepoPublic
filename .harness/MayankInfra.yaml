@@ -1,0 +1,15 @@
+infrastructureDefinition:
+  name: MayankInfra
+  identifier: MayankInfra
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  environmentRef: Mayank
+  deploymentType: Ssh
+  type: Pdc
+  spec:
+    connectorRef: org.PdcConnectorForSSHAutomationTest
+    credentialsRef: org.SSHSecretForAutomationTest
+    hostFilter:
+      type: All
+      spec: {}
+  allowSimultaneousDeployments: false
