@@ -1,0 +1,62 @@
+---
+service:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "azureartifact"
+          sources:
+          - spec:
+              connectorRef: "org.DockerConnector3AuthForAutomationTest"
+              imagePath: "harnessdev/azurejsfunctionsimage"
+              tag: "v1.0.0"
+              digest: ""
+            identifier: "docker"
+            type: "DockerRegistry"
+          - spec:
+              connectorRef: "org.AzureTextSecretSupportMayankConnectorForAutomationTest"
+              tag: "v6"
+              digest: ""
+              subscriptionId: "12d2db62-5aa9-471d-84bb-faa489b3e319"
+              registry: "rajcontainerregistry"
+              repository: "samples/azurejsfunctionsimage"
+            identifier: "azureartifact"
+            type: "Acr"
+          - spec:
+              connectorRef: "org.ArtifactoryConnectorForAutomationTest"
+              artifactDirectory: "."
+              artifactPath: "rajAZFunctionAppJava.zip"
+              repository: "lambda"
+              repositoryFormat: "generic"
+            identifier: "artifactory"
+            type: "ArtifactoryRegistry"
+          - spec:
+              connectorRef: "org.Nexus3ConnectorForAutomationTest"
+              repository: "raj-raw"
+              repositoryFormat: "raw"
+              tag: "<+input>"
+              digest: ""
+              spec:
+                group: "/"
+            identifier: "nexus"
+            type: "Nexus3Registry"
+          - spec:
+              connectorRef: "<+input>"
+              imagePath: "<+input>"
+              tag: "<+input>"
+              digest: ""
+            identifier: "m1"
+            type: "DockerRegistry"
+      variables:
+      - name: "var1"
+        type: "String"
+        description: ""
+        required: false
+        value: "<+input>"
+    type: "AzureFunction"
+  description: ""
+  tags: {}
+  identifier: "AzureContainerStep_Dummy_Clone"
+  name: "AzureContainerStep - Dummy - Clone"
