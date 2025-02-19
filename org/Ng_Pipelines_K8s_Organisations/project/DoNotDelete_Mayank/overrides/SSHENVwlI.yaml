@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: EnvVar_value
+      type: String
+      value: EnvVar_value
+      required: false
