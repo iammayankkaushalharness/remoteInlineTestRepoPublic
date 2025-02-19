@@ -1,0 +1,15 @@
+infrastructureDefinition:
+  name: SSHINFRAqZb
+  identifier: SSHINFRAqZb
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  environmentRef: SSHENVwlI
+  deploymentType: Ssh
+  type: Pdc
+  spec:
+    connectorRef: org.PdcConnectorForSSHAutomationTest
+    credentialsRef: org.SSHSecretForAutomationTest
+    hostFilter:
+      type: All
+      spec: {}
+  allowSimultaneousDeployments: false
