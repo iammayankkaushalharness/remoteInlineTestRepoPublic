@@ -1,0 +1,125 @@
+pipeline:
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: Deploy
+        identifier: Deploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: ServerlessAwsLambda
+          service:
+            serviceRef: ServerlessService_08nJz_Clone
+            gitBranch: helloMayankServerless
+          environment:
+            environmentRef: ServerlessEnv_BfsTH
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infra_oqwYF
+                inputs:
+                  identifier: infra_oqwYF
+                  type: ServerlessAwsLambda
+                  spec:
+                    stage: <+input>
+          execution:
+            steps:
+              - stepGroup:
+                  steps:
+                    - step:
+                        type: DownloadManifests
+                        name: DownloadManifests
+                        identifier: DownloadManifests
+                        spec: {}
+                        failureStrategies: []
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Prepare_Rollback
+                        type: ServerlessAwsLambdaPrepareRollbackV2
+                        name: Serverless Aws Lambda Prepare Rollback
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 2G
+                          preExecution: cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]> && npm install
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Package
+                        type: ServerlessAwsLambdaPackageV2
+                        name: Serverless Aws Lambda Package
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          resources:
+                            limits:
+                              memory: 1G
+                          preExecution: cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]> && npm install
+                          imagePullPolicy: Always
+                        when:
+                          stageStatus: Success
+                        failureStrategies: []
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Deploy
+                        type: ServerlessAwsLambdaDeployV2
+                        name: Serverless Aws Lambda Deploy
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 1G
+                          preExecution: cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]> && npm install
+                          deployCommandOptions:
+                            - "--aws-s3-accelerate"
+                        timeout: 10m
+                        when:
+                          stageStatus: Success
+                        failureStrategies: []
+                  name: Serverless Step Group
+                  identifier: serverless_step_group
+                  sharedPaths: []
+                  stepGroupInfra:
+                    spec:
+                      automountServiceAccountToken: true
+                      connectorRef: <+ <+env.type> == "PreProduction"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
+                      harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
+                      namespace: do-not-delete-serverless
+                    type: KubernetesDirect
+            rollbackSteps:
+              - stepGroup:
+                  identifier: serverless_rollback_step_group
+                  name: Serverless Rollback Step Group
+                  steps:
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Rollback
+                        type: ServerlessAwsLambdaRollbackV2
+                        name: Serverless Aws Lambda Rollback
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 2G
+                  stepGroupInfra:
+                    spec:
+                      automountServiceAccountToken: true
+                      connectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                      harnessImageConnectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                      namespace: do-not-delete-serverless
+                    type: KubernetesDirect
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+  identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE
+  name: SERVERLESS_TEST_PLUGIN_OVERRIDE
