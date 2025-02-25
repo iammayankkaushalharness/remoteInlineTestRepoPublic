@@ -1,65 +1,61 @@
----
 service:
-  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
-  projectIdentifier: "DoNotDelete_Mayank"
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
   gitOpsEnabled: false
   serviceDefinition:
-    type: "ServerlessAwsLambda"
+    type: ServerlessAwsLambda
     spec:
       manifests:
-      - manifest:
-          identifier: "m1"
-          type: "ServerlessAwsLambda"
-          spec:
-            store:
-              type: "Github"
-              spec:
-                connectorRef: "org.GitHubRepoSSHConnectorForAutomationTest"
-                repoName: "PipelinesNgAutomation"
-                gitFetchType: "Branch"
-                paths:
-                - "serverless2/"
-                branch: "quality/CDS-92731"
-      - manifest:
-          identifier: "m2"
-          type: "Values"
-          spec:
-            store:
-              type: "Github"
-              spec:
-                connectorRef: "org.GitHubRepoSSHConnectorForAutomationTest"
-                repoName: "PipelinesNgAutomation"
-                gitFetchType: "Branch"
-                paths:
-                - "serverless2/values.yml"
-                branch: "master"
+        - manifest:
+            identifier: m1
+            type: ServerlessAwsLambda
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: org.GitHubRepoSSHConnectorForAutomationTest
+                  repoName: PipelinesNgAutomation
+                  gitFetchType: Branch
+                  paths:
+                    - serverless2/
+                  branch: quality/CDS-92731
+        - manifest:
+            identifier: m2
+            type: Values
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: org.GitHubRepoSSHConnectorForAutomationTest
+                  repoName: PipelinesNgAutomation
+                  gitFetchType: Branch
+                  paths:
+                    - serverless2/values.yml
+                  branch: master
       artifacts:
         primary:
-          primaryArtifactRef: "artifact"
+          primaryArtifactRef: artifact
           sources:
-          - spec:
-              connectorRef: "org.ECRConnectorForAutomationTest"
-              imagePath: "todolist"
-              tag: "latest"
-              digest: ""
-              region: "us-east-1"
-            identifier: "artifact"
-            type: "Ecr"
-      pluginInfo:
-        runtimeLanguage: "<+input>"
-        serverlessVersion: "<+input>"
+            - spec:
+                connectorRef: org.ECRConnectorForAutomationTest
+                imagePath: todolist
+                tag: latest
+                digest: ""
+                region: us-east-1
+              identifier: artifact
+              type: Ecr
       variables:
-      - name: "runtimLanguage"
-        type: "String"
-        description: ""
-        required: false
-        value: "nodejs20.x"
-      - name: "pluginType"
-        type: "Secret"
-        description: ""
-        required: false
-        value: "pluginType"
-  identifier: "ServerlessService_08nJz_Clone"
+        - name: runtimLanguage
+          type: String
+          description: ""
+          required: false
+          value: nodejs20.x
+        - name: pluginType
+          type: Secret
+          description: ""
+          required: false
+          value: pluginType
+  identifier: ServerlessService_08nJz_Clone
   description: ""
   tags: {}
-  name: "ServerlessService_08nJz - Clone"
+  name: ServerlessService_08nJz - Clone
