@@ -12,6 +12,13 @@ pipeline:
           deploymentType: ServerlessAwsLambda
           service:
             serviceRef: ServerlessService_08nJz_Clone
+            serviceInputs:
+              serviceDefinition:
+                type: ServerlessAwsLambda
+                spec:
+                  pluginInfo:
+                    runtimeLanguage: <+input>
+                    serverlessVersion: <+input>
             gitBranch: helloMayankServerless
           environment:
             environmentRef: ServerlessEnv_BfsTH
