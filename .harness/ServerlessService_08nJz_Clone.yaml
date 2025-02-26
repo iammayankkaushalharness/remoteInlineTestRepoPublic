@@ -55,6 +55,9 @@ service:
           description: ""
           required: false
           value: pluginType
+      pluginInfo:
+        runtimeLanguage: <+input>
+        serverlessVersion: <+input>
   identifier: ServerlessService_08nJz_Clone
   description: ""
   tags: {}
