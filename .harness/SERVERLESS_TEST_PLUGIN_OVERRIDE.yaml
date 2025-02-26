@@ -128,5 +128,16 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+        variables:
+          - name: runtimLanguage
+            type: String
+            description: ""
+            required: false
+            value: nodejs20.x
+          - name: pluginType
+            type: Secret
+            description: ""
+            required: false
+            value: pluginType
   identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE
   name: SERVERLESS_TEST_PLUGIN_OVERRIDE
