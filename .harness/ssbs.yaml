@@ -1,0 +1,27 @@
+inputSet:
+  pipeline:
+    identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE
+    stages:
+      - stage:
+          identifier: Deploy
+          type: Deployment
+          spec:
+            service:
+              serviceInputs:
+                serviceDefinition:
+                  type: ServerlessAwsLambda
+                  spec:
+                    pluginInfo:
+                      serverlessVersion: 3.39.0
+            environment:
+              infrastructureDefinitions:
+                - identifier: infra_oqwYF
+                  inputs:
+                    identifier: infra_oqwYF
+                    type: ServerlessAwsLambda
+                    spec:
+                      stage: sss
+  name: ssbs
+  identifier: ssbs
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
