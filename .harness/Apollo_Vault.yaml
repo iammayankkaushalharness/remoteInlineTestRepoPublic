@@ -9,11 +9,11 @@ service:
         primary:
           sources:
             - spec:
-                connectorRef: dockerconnector
-                imagePath: "library/nginx "
-                tag: alpine3.21-slim
+                connectorRef: org.FSS_Quay_ReadOnly
+                imagePath: library/nginx
+                tag: 1.27.2-alpine3.20
                 digest: ""
-              identifier: docartifact
+              identifier: apollo_vault
               type: DockerRegistry
           primaryArtifactRef: <+input>
     type: Kubernetes
