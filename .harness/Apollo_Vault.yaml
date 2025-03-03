@@ -1,0 +1,24 @@
+---
+service:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  serviceDefinition:
+    spec:
+      release:
+        name: "release-<+INFRA_KEY_SHORT_ID>"
+      artifacts:
+        primary:
+          sources:
+          - spec:
+              connectorRef: "dockerconnector"
+              imagePath: "library/nginx "
+              tag: "<+input>"
+              digest: ""
+            identifier: "docartifact"
+            type: "DockerRegistry"
+          primaryArtifactRef: "docartifact"
+    type: "Kubernetes"
+  identifier: "Apollo_Vault"
+  description: ""
+  tags: {}
+  name: "Apollo Vault"
