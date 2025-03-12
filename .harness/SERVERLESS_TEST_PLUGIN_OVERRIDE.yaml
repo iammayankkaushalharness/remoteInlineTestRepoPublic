@@ -42,7 +42,7 @@ pipeline:
                           connectorRef: account.DockerConnectorn6yoJMDXnI
                           image: asdf
                           shell: Sh
-                          command: echo
+                          command: echo <+pipeline.variables.abc>
                     - step:
                         type: DownloadManifests
                         name: DownloadManifests
@@ -150,3 +150,9 @@ pipeline:
             value: pluginType
   identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE
   name: SERVERLESS_TEST_PLUGIN_OVERRIDE
+  variables:
+    - name: abc
+      type: Secret
+      description: ""
+      required: false
+      value: account.testingpiyush
