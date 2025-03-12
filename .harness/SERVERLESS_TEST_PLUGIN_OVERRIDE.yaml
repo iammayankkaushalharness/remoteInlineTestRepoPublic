@@ -35,6 +35,15 @@ pipeline:
               - stepGroup:
                   steps:
                     - step:
+                        type: Run
+                        name: Run_1
+                        identifier: Run_1
+                        spec:
+                          connectorRef: account.DockerConnectorn6yoJMDXnI
+                          image: asdf
+                          shell: Sh
+                          command: echo
+                    - step:
                         type: DownloadManifests
                         name: DownloadManifests
                         identifier: DownloadManifests
