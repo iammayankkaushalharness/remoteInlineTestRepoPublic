@@ -1,0 +1,10 @@
+environment:
+  name: MAYANK2
+  identifier: HelmTests_Clone
+  description: |
+    HELLO_TEST_2
+  tags:
+    HELLO_TEST: ""
+  type: Production
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
