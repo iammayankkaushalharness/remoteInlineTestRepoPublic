@@ -152,26 +152,6 @@ pipeline:
             description: ""
             required: false
             value: pluginType
-    - stage:
-        name: adsf
-        identifier: adsf
-        description: ""
-        type: CI
-        spec:
-          cloneCodebase: false
-          caching:
-            enabled: true
-            override: true
-          buildIntelligence:
-            enabled: true
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: account.k8s_connector_VNpAn
-              namespace: default
-              automountServiceAccountToken: true
-              nodeSelector: {}
-              os: Linux
   identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE
   name: SERVERLESS_TEST_PLUGIN_OVERRIDE
   variables:
