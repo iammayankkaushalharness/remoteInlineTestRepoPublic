@@ -107,7 +107,7 @@ pipeline:
                         - mountPath: ""
                           type: PersistentVolumeClaim
                           spec:
-                            claimName: asdf
+                            claimName: ""
                             readOnly: false
                       automountServiceAccountToken: true
                       harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
