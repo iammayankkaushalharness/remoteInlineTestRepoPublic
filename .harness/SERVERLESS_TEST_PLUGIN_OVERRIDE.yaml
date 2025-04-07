@@ -98,14 +98,19 @@ pipeline:
                         failureStrategies: []
                   name: Serverless Step Group
                   identifier: serverless_step_group
-                  sharedPaths: []
                   stepGroupInfra:
-                    spec:
-                      automountServiceAccountToken: true
-                      connectorRef: <+ <+env.type> == "PreProduction"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
-                      harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
-                      namespace: do-not-delete-serverless
                     type: KubernetesDirect
+                    spec:
+                      connectorRef: <+ <+env.type> == "PreProduction"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
+                      namespace: do-not-delete-serverless
+                      volumes:
+                        - mountPath: ""
+                          type: PersistentVolumeClaim
+                          spec:
+                            claimName: asdf
+                            readOnly: false
+                      automountServiceAccountToken: true
+                      harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
             rollbackSteps:
               - stepGroup:
                   identifier: serverless_rollback_step_group
