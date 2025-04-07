@@ -105,10 +105,9 @@ pipeline:
                       namespace: do-not-delete-serverless
                       volumes:
                         - mountPath: ""
-                          type: PersistentVolumeClaim
+                          type: EmptyDir
                           spec:
-                            claimName: ""
-                            readOnly: false
+                            medium: ""
                       automountServiceAccountToken: true
                       harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
             rollbackSteps:
