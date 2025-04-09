@@ -103,11 +103,7 @@ pipeline:
                     spec:
                       connectorRef: <+ <+env.type> == "PreProduction"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
                       namespace: do-not-delete-serverless
-                      volumes:
-                        - mountPath: ""
-                          type: EmptyDir
-                          spec:
-                            medium: ""
+                      volumes: []
                       automountServiceAccountToken: true
                       harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
             rollbackSteps:
