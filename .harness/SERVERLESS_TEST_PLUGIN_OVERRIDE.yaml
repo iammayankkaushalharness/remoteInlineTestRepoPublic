@@ -42,7 +42,7 @@ pipeline:
                           connectorRef: account.DockerConnectorn6yoJMDXnI
                           image: harnessdev/serverless-preparerollback:1.82.0-latest
                           shell: Sh
-                          command: echo <+pipeline.variables.abc>
+                          command: echo "heelo"
                     - step:
                         type: DownloadManifests
                         name: DownloadManifests
