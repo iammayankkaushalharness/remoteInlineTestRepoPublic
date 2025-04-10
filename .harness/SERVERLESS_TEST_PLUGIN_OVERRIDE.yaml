@@ -32,6 +32,41 @@ pipeline:
                     stage: <+input>
           execution:
             steps:
+              - step:
+                  type: Container
+                  name: Container_1
+                  identifier: Container_1
+                  spec:
+                    connectorRef: account.DockerConnectorOdLHt8awqd
+                    image: alpine
+                    command: asdf
+                    shell: Sh
+                    infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: account.k8s_connector_zenmy
+                        namespace: default
+                        resources:
+                          limits:
+                            cpu: "0.5"
+                            memory: 500Mi
+                        annotations: {}
+                        labels: {}
+                        containerSecurityContext:
+                          capabilities:
+                            drop: []
+                            add: []
+                        nodeSelector: {}
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths: []
+                    outputVariables:
+                      - name: out
+                      - name: simpleMultiLine
+                      - name: longJson
+                    envVariables: {}
+                  timeout: 10m
               - stepGroup:
                   steps:
                     - step:
