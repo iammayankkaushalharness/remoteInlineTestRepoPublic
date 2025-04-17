@@ -1,0 +1,803 @@
+pipeline:
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: asdf
+        identifier: asdf
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Container
+                  name: Container_1
+                  identifier: Container_1
+                  spec:
+                    connectorRef: account.DockerConnectorOdLHt8awqd
+                    image: alpine
+                    command: "echo \"Testing single line with Shell\"\nexport out=\"\
+                      a,b,c\"\n\n\necho \"Testing Single Line having spaces at the\
+                      \ end with Run Step \"\nexport singleLineWithSpaces=\"a,b,c\
+                      \           \"\n\n\necho \"Testing Simple Multi line With Run\
+                      \ Step\"\nexport simpleMultiLine=\"line1,\nline2,\nline3\nline4\"\
+                      \n\n\necho \"Testing Multi Line having special characters with\
+                      \ Run Step\"\nexport multiLine=\"line1 with numbers 1 2 3 4\
+                      \ 5 6 7 8 9 0\nline2 with few special chars ! @ # $ % ^ & *\
+                      \ ( )\nline3 with few more - + { } [ ] ; : \nline4 with slash\
+                      \ ////// ........\nline5 with |||| _____ << >>> <> ?\nline6\
+                      \ with single quotes 'abc' ' '' 'harness-testing'\nline6 & line7\
+                      \ with trailing spaces       \n       line8 with starting spaces\
+                      \               \n             \"\n\n\necho \"Testing Multiline\
+                      \ having nested quotes with Run Step\"\nexport multiLineWithNestedQuotes=\"\
+                      line1 starts \"nested-quote-1\" line1 ends\nline2 starts \"\
+                      nested-quote-2\" line2 ends\nline3 starts 'nested-quote-3' line3\
+                      \ ends\nline4 starts \"nested-quote-4\" line4 ends\n... \"\"\
+                      \ ... 1.' ' 2.'\nline6 ends\"\n\n\necho \"Testing Multi line\
+                      \ with single quotes in Run step\"\nexport multiLineWithSingleQuotes='line1\
+                      \ with numbers 1 2 3 4 5 6 7 8 9 0 \nline2 with few special\
+                      \ chars ! @ # $ % ^ & * ( )\nline3 with few more - + { } [ ]\
+                      \ ; : \nline4 with slash ////// ........\nline5 with |||| _____\
+                      \ << >>> <> ?\nline6 with single quotes 'nested-quotes-1' 'nested-quotes-2'\n\
+                      line6 & line7 with trailing spaces       \n       line8 with\
+                      \ starting spaces\nline9 with double quotes used 'nested-quotes-3'\
+                      \               \n             '\n\n\necho \"Testing Multi line\
+                      \ with nested double quotes within Single quotes\"\nexport multiLineNestedDoubleQuotes='line1\
+                      \ ...\nline2 \"nested\"\nline3 .... \"nested\" abc\nline4 ends'\n\
+                      echo \"Testing Empty line\"\nexport emptyLine=\"\"\n\n\necho\
+                      \ \"Testing Multiple Empty lines\"\nexport emptyMultiLines=\"\
+                      \n\n\n\n\n\"\n\n\necho \"Testing explicit new lines with backslash\
+                      \ n\"\nexport explicitNewLines=\"\\n\\n\\n\\n\"\n\n\necho \"\
+                      Testing All Ascii characters single line\"\nexport allASCIISingleLine=\"\
+                      0  NUL  1  SOH  2  STX  3  ETX  4  EOT  5  ENQ  6  ACK  7  BEL\
+                      \  8  BS  9  HT  10  LF  11  VT  12  FF  13  CR  14  SO  15\
+                      \  SI  16  DLE  17  DC1  18  DC2  19  DC3  20  DC4  21  NAK\
+                      \  22  SYN  23  ETB  24  CAN  25  EM  26  SUB  27  ESC  28 \
+                      \ FS  29  GS  30  RS  31  US  32  SP  33  !  34  \"\"  35  #\
+                      \  36  $  37  %  38  &  39  '  40  (  41  )  42  *  43  +  44\
+                      \  ,  45  -  46  .  47  /  48  0  49  1  50  2  51  3  52  4\
+                      \  53  5  54  6  55  7  56  8  57  9  58  :  59  ;  60  <  61\
+                      \  =  62  >  63  ?  64  @  65  A  66  B  67  C  68  D  69  E\
+                      \  70  F  71  G  72  H  73  I  74  J  75  K  76  L  77  M  78\
+                      \  N  79  O  80  P  81  Q  82  R  83  S  84  T  85  U  86  V\
+                      \  87  W  88  X  89  Y  90  Z  91  [  93  ]  94  ^  95  _  96\
+                      \  ``  97  a  98  b  99  c  100  d  101  e  102  f  103  g \
+                      \ 104  h  105  i  106  j  107  k  108  l  109  m  110  n  111\
+                      \  o  112  p  113  q  114  r  115  s  116  t  117  u  118  v\
+                      \  119  w  120  x  121  y  122  z  123  {  124  |  125  }  126\
+                      \  ~  127  DEL 128  € 128  €  129  �  130  ‚  131  ƒ  132  „\
+                      \  133  …  134  †  135  ‡  136  ˆ  137  ‰  138  Š  139  ‹  140\
+                      \  Œ  141  �  142  Ž  143  �  144  �  145  '  146  '  147  \"\
+                      \"  148  \"\"  149  •  150  –  151  —  152  ˜  153  ™  154 \
+                      \ š  155  ›  156  œ  157  �  158  ž  159  Ÿ  160     161  ¡\
+                      \  162  ¢  163  £  164  ¤  165  ¥  166  ¦  167  §  168  ¨  169\
+                      \  ©  170  ª  171  «  172  ¬  173  ­  174  ®  175  ¯  176  °\
+                      \  177  ±  178  ²  179  ³  180  ´  181  µ  182  ¶  183  ·  184\
+                      \  ¸  185  ¹  186  º  187  »  188  ¼  189  ½  190  ¾  191  ¿\
+                      \  192  À  193  Á  194  Â  195  Ã  196  Ä  197  Å  198  Æ  199\
+                      \  Ç  200  È  201  É  202  Ê  203  Ë  204  Ì  205  Í  206  Î\
+                      \  207  Ï  208  Ð  209  Ñ  210  Ò  211  Ó  212  Ô  213  Õ  214\
+                      \  Ö  215  ×  216  Ø  217  Ù  218  Ú  219  Û  220  Ü  221  Ý\
+                      \  222  Þ  223  ß  224  à  225  á  226  â  227  ã  228  ä  229\
+                      \  å  230  æ  231  ç  232  è  233  é  234  ê  235  ë  236  ì\
+                      \  237  í  238  î  239  ï  240  ð  241  ñ  242  ò  243  ó  244\
+                      \  ô  245  õ  246  ö  247  ÷  248  ø  249  ù  250  ú  251  û\
+                      \  252  ü  253  ý  254  þ  255  ÿ\"\n\n\necho \"Testing small\
+                      \ Json\"\nexport smallJson=\"{\n   \"status\": \"SUCCESS\",\n\
+                      \   \"metaData\": null,\n   \"correlationId\": \"3092b7e3-3f41-4341-b749-b91e7de193f4\"\
+                      \n}\"\n\n\necho \"Testing long Json\"\nexport longJson='{\n\
+                      \ \"status\": \"SUCCESS\",\n \"data\": {\n   \"pipelineExecutionSummary\"\
+                      : {\n     \"pipelineIdentifier\": \"SAM_Template\",\n     \"\
+                      orgIdentifier\": \"mno\",\n     \"projectIdentifier\": \"bpi\"\
+                      ,\n     \"planExecutionId\": \"Sla4F4i9RheFkcOQ\",\n     \"\
+                      name\": \"SAM Template\",\n     \"yamlVersion\": \"0\",\n  \
+                      \   \"status\": \"Failed\",\n     \"tags\": [],\n     \"labels\"\
+                      : [],\n     \"executionTriggerInfo\": {\n       \"triggerType\"\
+                      : \"MANUAL\",\n       \"triggeredBy\": {\n         \"uuid\"\
+                      : \"ULEmY7EpQUSJC8yw\",\n         \"identifier\": \"Walker\"\
+                      ,\n         \"extraInfo\": {\n           \"email\": \"william.\"\
+                      ,\n           \"uniqueId\": \"\"\n         },\n         \"triggerIdentifier\"\
+                      : \"\",\n         \"triggerName\": \"\"\n       },\n       \"\
+                      isRerun\": true,\n       \"rerunInfo\": {\n         \"rootExecutionId\"\
+                      : \"eTnoAFE7RtSs7CWADQw\",\n         \"rootTriggerType\": \"\
+                      MANUAL\",\n         \"prevExecutionId\": \"eTnoAFEWvtSs7CWADQw\"\
+                      ,\n         \"prevTriggerType\": \"MANUAL\"\n       }\n    \
+                      \ },\n     \"failureInfo\": {\n       \"message\": \"[Repo name\
+                      \ is not set in CI codebase spec]\",\n       \"failureTypeList\"\
+                      : [],\n       \"responseMessages\": [\n         {\n        \
+                      \   \"code\": \"GENERAL_ERROR\",\n           \"level\": \"ERROR\"\
+                      ,\n           \"message\": \"[Repo name is not set in CI codebase\
+                      \ spec]\",\n           \"exception\": null,\n           \"failureTypes\"\
+                      : [],\n           \"additionalInfo\": {}\n         }\n     \
+                      \  ]\n     },\n     \"moduleInfo\": {\n       \"ci\": {\n  \
+                      \       \"__recast\": \"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\"\
+                      ,\n         \"ciPipelineStageModuleInfo\": {\n           \"\
+                      __recast\": \"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                      ,\n           \"buildMultiplier\": 1.0,\n           \"cpuTime\"\
+                      : 102113,\n           \"infraType\": \"KubernetesDirect\",\n\
+                      \           \"osArch\": \"Amd64\",\n           \"osType\": \"\
+                      Linux\",\n           \"resourceClass\": \"\",\n           \"\
+                      stageBuildTime\": 113602,\n           \"stageExecutionId\":\
+                      \ \"oCjKG-APTnqwIV-6rwA\",\n           \"stageId\": \"Build\"\
+                      ,\n           \"stageName\": \"Build\",\n           \"startTs\"\
+                      : 1740587274169\n         },\n         \"branch\": \"\",\n \
+                      \        \"buildType\": \"tag\",\n         \"ciEditionType\"\
+                      : \"ENTERPRISE\",\n         \"ciExecutionInfoDTO\": {\n    \
+                      \       \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                      ,\n           \"author\": {\n             \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                      ,\n             \"id\": \"Anaka\",\n             \"name\": \"\
+                      Anaka\",\n             \"email\": \"anaka\",\n             \"\
+                      avatar\": \"\"\n           },\n           \"branch\": {\n  \
+                      \           \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                      ,\n             \"commits\": [\n               {\n         \
+                      \        \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                      ,\n                 \"id\": \"109074e88f4b073e10052522d64bd761c\"\
+                      ,\n                 \"link\": \"\",\n                 \"message\"\
+                      : \"Update file prod_template.yaml\",\n                 \"ownerName\"\
+                      : \"Anaka\",\n                 \"ownerId\": \"Anaka\",\n   \
+                      \              \"ownerEmail\": \"anaka\",\n                \
+                      \ \"timeStamp\": 1740478654000\n               }\n         \
+                      \    ]\n           },\n           \"event\": \"branch\",\n \
+                      \          \"userSource\": \"GIT\"\n         },\n         \"\
+                      ciLicenseType\": \"PAID\",\n         \"isPrivateRepo\": true,\n\
+                      \         \"repoName\": \"are-automation-lambdas/omni-disk-cleanup\"\
+                      ,\n         \"scmDetailsList\": [\n           {\n          \
+                      \   \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                      ,\n             \"scmUrl\": \"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                      ,\n             \"scmProvider\": \"Gitlab\",\n             \"\
+                      scmAuthType\": \"Http\",\n             \"scmHostType\": \"SaaS\"\
+                      \n           }\n         ],\n         \"tag\": \"0.0.8\",\n\
+                      \         \"tiBuildDetailsList\": []\n       }\n   }\n },\n\
+                      \ \"metaData\": null,\n \"correlationId\": \"3092b7e3-31-4341-b749-b91e7de193f4\"\
+                      \n}'\n\n\necho \"Testing minified small Json\"\nexport minifiedSmallJson=\"\
+                      {\"status\":\"SUCCESS\",\"metaData\":null,\"correlationId\"\
+                      :\"3092b7e3-3f41-4341-b749-b91e7de193f4\"}\"\n\n\necho \"Testing\
+                      \ minified long Json\"\nexport minifiedLongJson='{\"status\"\
+                      :\"SUCCESS\",\"data\":{\"pipelineExecutionSummary\":{\"pipelineIdentifier\"\
+                      :\"SAM_Template\",\"orgIdentifier\":\"mno\",\"projectIdentifier\"\
+                      :\"bpi\",\"planExecutionId\":\"Sla4F4i9RheFkcOQ\",\"name\":\"\
+                      SAM Template\",\"yamlVersion\":\"0\",\"status\":\"Failed\",\"\
+                      tags\":[],\"labels\":[],\"executionTriggerInfo\":{\"triggerType\"\
+                      :\"MANUAL\",\"triggeredBy\":{\"uuid\":\"ULEmY7EpQUSJC8yw\",\"\
+                      identifier\":\"Walker\",\"extraInfo\":{\"email\":\"william.\"\
+                      ,\"uniqueId\":\"\"},\"triggerIdentifier\":\"\",\"triggerName\"\
+                      :\"\"},\"isRerun\":true,\"rerunInfo\":{\"rootExecutionId\":\"\
+                      eTnoAFE7RtSs7CWADQw\",\"rootTriggerType\":\"MANUAL\",\"prevExecutionId\"\
+                      :\"eTnoAFEWvtSs7CWADQw\",\"prevTriggerType\":\"MANUAL\"}},\"\
+                      failureInfo\":{\"message\":\"[Repo name is not set in CI codebase\
+                      \ spec]\",\"failureTypeList\":[],\"responseMessages\":[{\"code\"\
+                      :\"GENERAL_ERROR\",\"level\":\"ERROR\",\"message\":\"[Repo name\
+                      \ is not set in CI codebase spec]\",\"exception\":null,\"failureTypes\"\
+                      :[],\"additionalInfo\":{}}]},\"moduleInfo\":{\"ci\":{\"__recast\"\
+                      :\"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\",\"ciPipelineStageModuleInfo\"\
+                      :{\"__recast\":\"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                      ,\"buildMultiplier\":1,\"cpuTime\":102113,\"infraType\":\"KubernetesDirect\"\
+                      ,\"osArch\":\"Amd64\",\"osType\":\"Linux\",\"resourceClass\"\
+                      :\"\",\"stageBuildTime\":113602,\"stageExecutionId\":\"oCjKG-APTnqwIV-6rwA\"\
+                      ,\"stageId\":\"Build\",\"stageName\":\"Build\",\"startTs\":1740587274169},\"\
+                      branch\":\"\",\"buildType\":\"tag\",\"ciEditionType\":\"ENTERPRISE\"\
+                      ,\"ciExecutionInfoDTO\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                      ,\"author\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                      ,\"id\":\"Anaka\",\"name\":\"Anaka\",\"email\":\"anaka\",\"\
+                      avatar\":\"\"},\"branch\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                      ,\"commits\":[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                      ,\"id\":\"109074e88f4b073e10052522d64bd761c\",\"link\":\"\"\
+                      ,\"message\":\"Update file prod_template.yaml\",\"ownerName\"\
+                      :\"Anaka\",\"ownerId\":\"Anaka\",\"ownerEmail\":\"anaka\",\"\
+                      timeStamp\":1740478654000}]},\"event\":\"branch\",\"userSource\"\
+                      :\"GIT\"},\"ciLicenseType\":\"PAID\",\"isPrivateRepo\":true,\"\
+                      repoName\":\"are-automation-lambdas/omni-disk-cleanup\",\"scmDetailsList\"\
+                      :[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                      ,\"scmUrl\":\"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                      ,\"scmProvider\":\"Gitlab\",\"scmAuthType\":\"Http\",\"scmHostType\"\
+                      :\"SaaS\"}],\"tag\":\"0.0.8\",\"tiBuildDetailsList\":[]}}},\"\
+                      metaData\":null,\"correlationId\":\"3092b7e3-31-4341-b749-b91e7de193f4\"\
+                      }}'\n\n\n\n\necho \"Testing Very long string\"\nexport longString=\"\
+                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\
+                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\""
+                    shell: Sh
+                    infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                        namespace: default
+                        resources:
+                          limits:
+                            cpu: "0.5"
+                            memory: 500Mi
+                        annotations: {}
+                        labels: {}
+                        containerSecurityContext:
+                          capabilities:
+                            drop: []
+                            add: []
+                        nodeSelector: {}
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths: []
+                    outputVariables:
+                      - name: out
+                      - name: simpleMultiLine
+                      - name: longJson
+                    envVariables: {}
+                  timeout: 10m
+        tags: {}
+    - stage:
+        name: Deploy
+        identifier: Deploy
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: ServerlessAwsLambda
+          service:
+            serviceRef: ServerlessService_08nJz_Clone
+            serviceInputs:
+              serviceDefinition:
+                type: ServerlessAwsLambda
+                spec:
+                  pluginInfo:
+                    serverlessVersion: <+input>
+                    runtimeLanguage: python3.12
+            gitBranch: helloMayankServerless
+          environment:
+            environmentRef: ServerlessEnv_BfsTH
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infra_oqwYF
+                inputs:
+                  identifier: infra_oqwYF
+                  type: ServerlessAwsLambda
+                  spec:
+                    stage: <+input>
+          execution:
+            steps:
+              - step:
+                  type: Container
+                  name: Container_1
+                  identifier: Container_1
+                  spec:
+                    connectorRef: account.DockerConnectorOdLHt8awqd
+                    image: alpine
+                    command: "echo \"Testing single line with Shell\"\nexport out=\"\
+                      a,b,c\"\n\n\necho \"Testing Single Line having spaces at the\
+                      \ end with Run Step \"\nexport singleLineWithSpaces=\"a,b,c\
+                      \           \"\n\n\necho \"Testing Simple Multi line With Run\
+                      \ Step\"\nexport simpleMultiLine=\"line1,\nline2,\nline3\nline4\"\
+                      \n\n\necho \"Testing Multi Line having special characters with\
+                      \ Run Step\"\nexport multiLine=\"line1 with numbers 1 2 3 4\
+                      \ 5 6 7 8 9 0\nline2 with few special chars ! @ # $ % ^ & *\
+                      \ ( )\nline3 with few more - + { } [ ] ; : \nline4 with slash\
+                      \ ////// ........\nline5 with |||| _____ << >>> <> ?\nline6\
+                      \ with single quotes 'abc' ' '' 'harness-testing'\nline6 & line7\
+                      \ with trailing spaces       \n       line8 with starting spaces\
+                      \               \n             \"\n\n\necho \"Testing Multiline\
+                      \ having nested quotes with Run Step\"\nexport multiLineWithNestedQuotes=\"\
+                      line1 starts \"nested-quote-1\" line1 ends\nline2 starts \"\
+                      nested-quote-2\" line2 ends\nline3 starts 'nested-quote-3' line3\
+                      \ ends\nline4 starts \"nested-quote-4\" line4 ends\n... \"\"\
+                      \ ... 1.' ' 2.'\nline6 ends\"\n\n\necho \"Testing Multi line\
+                      \ with single quotes in Run step\"\nexport multiLineWithSingleQuotes='line1\
+                      \ with numbers 1 2 3 4 5 6 7 8 9 0 \nline2 with few special\
+                      \ chars ! @ # $ % ^ & * ( )\nline3 with few more - + { } [ ]\
+                      \ ; : \nline4 with slash ////// ........\nline5 with |||| _____\
+                      \ << >>> <> ?\nline6 with single quotes 'nested-quotes-1' 'nested-quotes-2'\n\
+                      line6 & line7 with trailing spaces       \n       line8 with\
+                      \ starting spaces\nline9 with double quotes used 'nested-quotes-3'\
+                      \               \n             '\n\n\necho \"Testing Multi line\
+                      \ with nested double quotes within Single quotes\"\nexport multiLineNestedDoubleQuotes='line1\
+                      \ ...\nline2 \"nested\"\nline3 .... \"nested\" abc\nline4 ends'\n\
+                      echo \"Testing Empty line\"\nexport emptyLine=\"\"\n\n\necho\
+                      \ \"Testing Multiple Empty lines\"\nexport emptyMultiLines=\"\
+                      \n\n\n\n\n\"\n\n\necho \"Testing explicit new lines with backslash\
+                      \ n\"\nexport explicitNewLines=\"\\n\\n\\n\\n\"\n\n\necho \"\
+                      Testing All Ascii characters single line\"\nexport allASCIISingleLine=\"\
+                      0  NUL  1  SOH  2  STX  3  ETX  4  EOT  5  ENQ  6  ACK  7  BEL\
+                      \  8  BS  9  HT  10  LF  11  VT  12  FF  13  CR  14  SO  15\
+                      \  SI  16  DLE  17  DC1  18  DC2  19  DC3  20  DC4  21  NAK\
+                      \  22  SYN  23  ETB  24  CAN  25  EM  26  SUB  27  ESC  28 \
+                      \ FS  29  GS  30  RS  31  US  32  SP  33  !  34  \"\"  35  #\
+                      \  36  $  37  %  38  &  39  '  40  (  41  )  42  *  43  +  44\
+                      \  ,  45  -  46  .  47  /  48  0  49  1  50  2  51  3  52  4\
+                      \  53  5  54  6  55  7  56  8  57  9  58  :  59  ;  60  <  61\
+                      \  =  62  >  63  ?  64  @  65  A  66  B  67  C  68  D  69  E\
+                      \  70  F  71  G  72  H  73  I  74  J  75  K  76  L  77  M  78\
+                      \  N  79  O  80  P  81  Q  82  R  83  S  84  T  85  U  86  V\
+                      \  87  W  88  X  89  Y  90  Z  91  [  93  ]  94  ^  95  _  96\
+                      \  ``  97  a  98  b  99  c  100  d  101  e  102  f  103  g \
+                      \ 104  h  105  i  106  j  107  k  108  l  109  m  110  n  111\
+                      \  o  112  p  113  q  114  r  115  s  116  t  117  u  118  v\
+                      \  119  w  120  x  121  y  122  z  123  {  124  |  125  }  126\
+                      \  ~  127  DEL 128  € 128  €  129  �  130  ‚  131  ƒ  132  „\
+                      \  133  …  134  †  135  ‡  136  ˆ  137  ‰  138  Š  139  ‹  140\
+                      \  Œ  141  �  142  Ž  143  �  144  �  145  '  146  '  147  \"\
+                      \"  148  \"\"  149  •  150  –  151  —  152  ˜  153  ™  154 \
+                      \ š  155  ›  156  œ  157  �  158  ž  159  Ÿ  160     161  ¡\
+                      \  162  ¢  163  £  164  ¤  165  ¥  166  ¦  167  §  168  ¨  169\
+                      \  ©  170  ª  171  «  172  ¬  173  ­  174  ®  175  ¯  176  °\
+                      \  177  ±  178  ²  179  ³  180  ´  181  µ  182  ¶  183  ·  184\
+                      \  ¸  185  ¹  186  º  187  »  188  ¼  189  ½  190  ¾  191  ¿\
+                      \  192  À  193  Á  194  Â  195  Ã  196  Ä  197  Å  198  Æ  199\
+                      \  Ç  200  È  201  É  202  Ê  203  Ë  204  Ì  205  Í  206  Î\
+                      \  207  Ï  208  Ð  209  Ñ  210  Ò  211  Ó  212  Ô  213  Õ  214\
+                      \  Ö  215  ×  216  Ø  217  Ù  218  Ú  219  Û  220  Ü  221  Ý\
+                      \  222  Þ  223  ß  224  à  225  á  226  â  227  ã  228  ä  229\
+                      \  å  230  æ  231  ç  232  è  233  é  234  ê  235  ë  236  ì\
+                      \  237  í  238  î  239  ï  240  ð  241  ñ  242  ò  243  ó  244\
+                      \  ô  245  õ  246  ö  247  ÷  248  ø  249  ù  250  ú  251  û\
+                      \  252  ü  253  ý  254  þ  255  ÿ\"\n\n\necho \"Testing small\
+                      \ Json\"\nexport smallJson=\"{\n   \"status\": \"SUCCESS\",\n\
+                      \   \"metaData\": null,\n   \"correlationId\": \"3092b7e3-3f41-4341-b749-b91e7de193f4\"\
+                      \n}\"\n\n\necho \"Testing long Json\"\nexport longJson='{\n\
+                      \ \"status\": \"SUCCESS\",\n \"data\": {\n   \"pipelineExecutionSummary\"\
+                      : {\n     \"pipelineIdentifier\": \"SAM_Template\",\n     \"\
+                      orgIdentifier\": \"mno\",\n     \"projectIdentifier\": \"bpi\"\
+                      ,\n     \"planExecutionId\": \"Sla4F4i9RheFkcOQ\",\n     \"\
+                      name\": \"SAM Template\",\n     \"yamlVersion\": \"0\",\n  \
+                      \   \"status\": \"Failed\",\n     \"tags\": [],\n     \"labels\"\
+                      : [],\n     \"executionTriggerInfo\": {\n       \"triggerType\"\
+                      : \"MANUAL\",\n       \"triggeredBy\": {\n         \"uuid\"\
+                      : \"ULEmY7EpQUSJC8yw\",\n         \"identifier\": \"Walker\"\
+                      ,\n         \"extraInfo\": {\n           \"email\": \"william.\"\
+                      ,\n           \"uniqueId\": \"\"\n         },\n         \"triggerIdentifier\"\
+                      : \"\",\n         \"triggerName\": \"\"\n       },\n       \"\
+                      isRerun\": true,\n       \"rerunInfo\": {\n         \"rootExecutionId\"\
+                      : \"eTnoAFE7RtSs7CWADQw\",\n         \"rootTriggerType\": \"\
+                      MANUAL\",\n         \"prevExecutionId\": \"eTnoAFEWvtSs7CWADQw\"\
+                      ,\n         \"prevTriggerType\": \"MANUAL\"\n       }\n    \
+                      \ },\n     \"failureInfo\": {\n       \"message\": \"[Repo name\
+                      \ is not set in CI codebase spec]\",\n       \"failureTypeList\"\
+                      : [],\n       \"responseMessages\": [\n         {\n        \
+                      \   \"code\": \"GENERAL_ERROR\",\n           \"level\": \"ERROR\"\
+                      ,\n           \"message\": \"[Repo name is not set in CI codebase\
+                      \ spec]\",\n           \"exception\": null,\n           \"failureTypes\"\
+                      : [],\n           \"additionalInfo\": {}\n         }\n     \
+                      \  ]\n     },\n     \"moduleInfo\": {\n       \"ci\": {\n  \
+                      \       \"__recast\": \"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\"\
+                      ,\n         \"ciPipelineStageModuleInfo\": {\n           \"\
+                      __recast\": \"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                      ,\n           \"buildMultiplier\": 1.0,\n           \"cpuTime\"\
+                      : 102113,\n           \"infraType\": \"KubernetesDirect\",\n\
+                      \           \"osArch\": \"Amd64\",\n           \"osType\": \"\
+                      Linux\",\n           \"resourceClass\": \"\",\n           \"\
+                      stageBuildTime\": 113602,\n           \"stageExecutionId\":\
+                      \ \"oCjKG-APTnqwIV-6rwA\",\n           \"stageId\": \"Build\"\
+                      ,\n           \"stageName\": \"Build\",\n           \"startTs\"\
+                      : 1740587274169\n         },\n         \"branch\": \"\",\n \
+                      \        \"buildType\": \"tag\",\n         \"ciEditionType\"\
+                      : \"ENTERPRISE\",\n         \"ciExecutionInfoDTO\": {\n    \
+                      \       \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                      ,\n           \"author\": {\n             \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                      ,\n             \"id\": \"Anaka\",\n             \"name\": \"\
+                      Anaka\",\n             \"email\": \"anaka\",\n             \"\
+                      avatar\": \"\"\n           },\n           \"branch\": {\n  \
+                      \           \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                      ,\n             \"commits\": [\n               {\n         \
+                      \        \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                      ,\n                 \"id\": \"109074e88f4b073e10052522d64bd761c\"\
+                      ,\n                 \"link\": \"\",\n                 \"message\"\
+                      : \"Update file prod_template.yaml\",\n                 \"ownerName\"\
+                      : \"Anaka\",\n                 \"ownerId\": \"Anaka\",\n   \
+                      \              \"ownerEmail\": \"anaka\",\n                \
+                      \ \"timeStamp\": 1740478654000\n               }\n         \
+                      \    ]\n           },\n           \"event\": \"branch\",\n \
+                      \          \"userSource\": \"GIT\"\n         },\n         \"\
+                      ciLicenseType\": \"PAID\",\n         \"isPrivateRepo\": true,\n\
+                      \         \"repoName\": \"are-automation-lambdas/omni-disk-cleanup\"\
+                      ,\n         \"scmDetailsList\": [\n           {\n          \
+                      \   \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                      ,\n             \"scmUrl\": \"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                      ,\n             \"scmProvider\": \"Gitlab\",\n             \"\
+                      scmAuthType\": \"Http\",\n             \"scmHostType\": \"SaaS\"\
+                      \n           }\n         ],\n         \"tag\": \"0.0.8\",\n\
+                      \         \"tiBuildDetailsList\": []\n       }\n   }\n },\n\
+                      \ \"metaData\": null,\n \"correlationId\": \"3092b7e3-31-4341-b749-b91e7de193f4\"\
+                      \n}'\n\n\necho \"Testing minified small Json\"\nexport minifiedSmallJson=\"\
+                      {\"status\":\"SUCCESS\",\"metaData\":null,\"correlationId\"\
+                      :\"3092b7e3-3f41-4341-b749-b91e7de193f4\"}\"\n\n\necho \"Testing\
+                      \ minified long Json\"\nexport minifiedLongJson='{\"status\"\
+                      :\"SUCCESS\",\"data\":{\"pipelineExecutionSummary\":{\"pipelineIdentifier\"\
+                      :\"SAM_Template\",\"orgIdentifier\":\"mno\",\"projectIdentifier\"\
+                      :\"bpi\",\"planExecutionId\":\"Sla4F4i9RheFkcOQ\",\"name\":\"\
+                      SAM Template\",\"yamlVersion\":\"0\",\"status\":\"Failed\",\"\
+                      tags\":[],\"labels\":[],\"executionTriggerInfo\":{\"triggerType\"\
+                      :\"MANUAL\",\"triggeredBy\":{\"uuid\":\"ULEmY7EpQUSJC8yw\",\"\
+                      identifier\":\"Walker\",\"extraInfo\":{\"email\":\"william.\"\
+                      ,\"uniqueId\":\"\"},\"triggerIdentifier\":\"\",\"triggerName\"\
+                      :\"\"},\"isRerun\":true,\"rerunInfo\":{\"rootExecutionId\":\"\
+                      eTnoAFE7RtSs7CWADQw\",\"rootTriggerType\":\"MANUAL\",\"prevExecutionId\"\
+                      :\"eTnoAFEWvtSs7CWADQw\",\"prevTriggerType\":\"MANUAL\"}},\"\
+                      failureInfo\":{\"message\":\"[Repo name is not set in CI codebase\
+                      \ spec]\",\"failureTypeList\":[],\"responseMessages\":[{\"code\"\
+                      :\"GENERAL_ERROR\",\"level\":\"ERROR\",\"message\":\"[Repo name\
+                      \ is not set in CI codebase spec]\",\"exception\":null,\"failureTypes\"\
+                      :[],\"additionalInfo\":{}}]},\"moduleInfo\":{\"ci\":{\"__recast\"\
+                      :\"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\",\"ciPipelineStageModuleInfo\"\
+                      :{\"__recast\":\"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                      ,\"buildMultiplier\":1,\"cpuTime\":102113,\"infraType\":\"KubernetesDirect\"\
+                      ,\"osArch\":\"Amd64\",\"osType\":\"Linux\",\"resourceClass\"\
+                      :\"\",\"stageBuildTime\":113602,\"stageExecutionId\":\"oCjKG-APTnqwIV-6rwA\"\
+                      ,\"stageId\":\"Build\",\"stageName\":\"Build\",\"startTs\":1740587274169},\"\
+                      branch\":\"\",\"buildType\":\"tag\",\"ciEditionType\":\"ENTERPRISE\"\
+                      ,\"ciExecutionInfoDTO\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                      ,\"author\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                      ,\"id\":\"Anaka\",\"name\":\"Anaka\",\"email\":\"anaka\",\"\
+                      avatar\":\"\"},\"branch\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                      ,\"commits\":[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                      ,\"id\":\"109074e88f4b073e10052522d64bd761c\",\"link\":\"\"\
+                      ,\"message\":\"Update file prod_template.yaml\",\"ownerName\"\
+                      :\"Anaka\",\"ownerId\":\"Anaka\",\"ownerEmail\":\"anaka\",\"\
+                      timeStamp\":1740478654000}]},\"event\":\"branch\",\"userSource\"\
+                      :\"GIT\"},\"ciLicenseType\":\"PAID\",\"isPrivateRepo\":true,\"\
+                      repoName\":\"are-automation-lambdas/omni-disk-cleanup\",\"scmDetailsList\"\
+                      :[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                      ,\"scmUrl\":\"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                      ,\"scmProvider\":\"Gitlab\",\"scmAuthType\":\"Http\",\"scmHostType\"\
+                      :\"SaaS\"}],\"tag\":\"0.0.8\",\"tiBuildDetailsList\":[]}}},\"\
+                      metaData\":null,\"correlationId\":\"3092b7e3-31-4341-b749-b91e7de193f4\"\
+                      }}'\n\n\n\n\necho \"Testing Very long string\"\nexport longString=\"\
+                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\
+                      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\""
+                    shell: Sh
+                    infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                        namespace: default
+                        resources:
+                          limits:
+                            cpu: "0.5"
+                            memory: 500Mi
+                        annotations: {}
+                        labels: {}
+                        containerSecurityContext:
+                          capabilities:
+                            drop: []
+                            add: []
+                        nodeSelector: {}
+                    reports:
+                      type: JUnit
+                      spec:
+                        paths: []
+                    outputVariables:
+                      - name: out
+                      - name: simpleMultiLine
+                      - name: longJson
+                    envVariables: {}
+                  timeout: 10m
+              - stepGroup:
+                  steps:
+                    - step:
+                        type: Run
+                        name: Run_1
+                        identifier: Run_1
+                        spec:
+                          connectorRef: account.DockerConnectorn6yoJMDXnI
+                          image: harnessdev/serverless-preparerollback:1.82.0-latest
+                          shell: Sh
+                          command: "echo \"Testing single line with Shell\"\nexport\
+                            \ out=\"a,b,c\"\n\n\necho \"Testing Single Line having\
+                            \ spaces at the end with Run Step \"\nexport singleLineWithSpaces=\"\
+                            a,b,c           \"\n\n\necho \"Testing Simple Multi line\
+                            \ With Run Step\"\nexport simpleMultiLine=\"line1,\nline2,\n\
+                            line3\nline4\"\n\n\necho \"Testing Multi Line having special\
+                            \ characters with Run Step\"\nexport multiLine=\"line1\
+                            \ with numbers 1 2 3 4 5 6 7 8 9 0\nline2 with few special\
+                            \ chars ! @ # $ % ^ & * ( )\nline3 with few more - + {\
+                            \ } [ ] ; : \nline4 with slash ////// ........\nline5\
+                            \ with |||| _____ << >>> <> ?\nline6 with single quotes\
+                            \ 'abc' ' '' 'harness-testing'\nline6 & line7 with trailing\
+                            \ spaces       \n       line8 with starting spaces   \
+                            \            \n             \"\n\n\necho \"Testing Multiline\
+                            \ having nested quotes with Run Step\"\nexport multiLineWithNestedQuotes=\"\
+                            line1 starts \"nested-quote-1\" line1 ends\nline2 starts\
+                            \ \"nested-quote-2\" line2 ends\nline3 starts 'nested-quote-3'\
+                            \ line3 ends\nline4 starts \"nested-quote-4\" line4 ends\n\
+                            ... \"\" ... 1.' ' 2.'\nline6 ends\"\n\n\necho \"Testing\
+                            \ Multi line with single quotes in Run step\"\nexport\
+                            \ multiLineWithSingleQuotes='line1 with numbers 1 2 3\
+                            \ 4 5 6 7 8 9 0 \nline2 with few special chars ! @ # $\
+                            \ % ^ & * ( )\nline3 with few more - + { } [ ] ; : \n\
+                            line4 with slash ////// ........\nline5 with |||| _____\
+                            \ << >>> <> ?\nline6 with single quotes 'nested-quotes-1'\
+                            \ 'nested-quotes-2'\nline6 & line7 with trailing spaces\
+                            \       \n       line8 with starting spaces\nline9 with\
+                            \ double quotes used 'nested-quotes-3'               \n\
+                            \             '\n\n\necho \"Testing Multi line with nested\
+                            \ double quotes within Single quotes\"\nexport multiLineNestedDoubleQuotes='line1\
+                            \ ...\nline2 \"nested\"\nline3 .... \"nested\" abc\nline4\
+                            \ ends'\necho \"Testing Empty line\"\nexport emptyLine=\"\
+                            \"\n\n\necho \"Testing Multiple Empty lines\"\nexport\
+                            \ emptyMultiLines=\"\n\n\n\n\n\"\n\n\necho \"Testing explicit\
+                            \ new lines with backslash n\"\nexport explicitNewLines=\"\
+                            \\n\\n\\n\\n\"\n\n\necho \"Testing All Ascii characters\
+                            \ single line\"\nexport allASCIISingleLine=\"0  NUL  1\
+                            \  SOH  2  STX  3  ETX  4  EOT  5  ENQ  6  ACK  7  BEL\
+                            \  8  BS  9  HT  10  LF  11  VT  12  FF  13  CR  14  SO\
+                            \  15  SI  16  DLE  17  DC1  18  DC2  19  DC3  20  DC4\
+                            \  21  NAK  22  SYN  23  ETB  24  CAN  25  EM  26  SUB\
+                            \  27  ESC  28  FS  29  GS  30  RS  31  US  32  SP  33\
+                            \  !  34  \"\"  35  #  36  $  37  %  38  &  39  '  40\
+                            \  (  41  )  42  *  43  +  44  ,  45  -  46  .  47  /\
+                            \  48  0  49  1  50  2  51  3  52  4  53  5  54  6  55\
+                            \  7  56  8  57  9  58  :  59  ;  60  <  61  =  62  >\
+                            \  63  ?  64  @  65  A  66  B  67  C  68  D  69  E  70\
+                            \  F  71  G  72  H  73  I  74  J  75  K  76  L  77  M\
+                            \  78  N  79  O  80  P  81  Q  82  R  83  S  84  T  85\
+                            \  U  86  V  87  W  88  X  89  Y  90  Z  91  [  93  ]\
+                            \  94  ^  95  _  96  ``  97  a  98  b  99  c  100  d \
+                            \ 101  e  102  f  103  g  104  h  105  i  106  j  107\
+                            \  k  108  l  109  m  110  n  111  o  112  p  113  q \
+                            \ 114  r  115  s  116  t  117  u  118  v  119  w  120\
+                            \  x  121  y  122  z  123  {  124  |  125  }  126  ~ \
+                            \ 127  DEL 128  € 128  €  129  �  130  ‚  131  ƒ  132\
+                            \  „  133  …  134  †  135  ‡  136  ˆ  137  ‰  138  Š \
+                            \ 139  ‹  140  Œ  141  �  142  Ž  143  �  144  �  145\
+                            \  '  146  '  147  \"\"  148  \"\"  149  •  150  –  151\
+                            \  —  152  ˜  153  ™  154  š  155  ›  156  œ  157  � \
+                            \ 158  ž  159  Ÿ  160     161  ¡  162  ¢  163  £  164\
+                            \  ¤  165  ¥  166  ¦  167  §  168  ¨  169  ©  170  ª \
+                            \ 171  «  172  ¬  173  ­  174  ®  175  ¯  176  °  177\
+                            \  ±  178  ²  179  ³  180  ´  181  µ  182  ¶  183  · \
+                            \ 184  ¸  185  ¹  186  º  187  »  188  ¼  189  ½  190\
+                            \  ¾  191  ¿  192  À  193  Á  194  Â  195  Ã  196  Ä \
+                            \ 197  Å  198  Æ  199  Ç  200  È  201  É  202  Ê  203\
+                            \  Ë  204  Ì  205  Í  206  Î  207  Ï  208  Ð  209  Ñ \
+                            \ 210  Ò  211  Ó  212  Ô  213  Õ  214  Ö  215  ×  216\
+                            \  Ø  217  Ù  218  Ú  219  Û  220  Ü  221  Ý  222  Þ \
+                            \ 223  ß  224  à  225  á  226  â  227  ã  228  ä  229\
+                            \  å  230  æ  231  ç  232  è  233  é  234  ê  235  ë \
+                            \ 236  ì  237  í  238  î  239  ï  240  ð  241  ñ  242\
+                            \  ò  243  ó  244  ô  245  õ  246  ö  247  ÷  248  ø \
+                            \ 249  ù  250  ú  251  û  252  ü  253  ý  254  þ  255\
+                            \  ÿ\"\n\n\necho \"Testing small Json\"\nexport smallJson=\"\
+                            {\n   \"status\": \"SUCCESS\",\n   \"metaData\": null,\n\
+                            \   \"correlationId\": \"3092b7e3-3f41-4341-b749-b91e7de193f4\"\
+                            \n}\"\n\n\necho \"Testing long Json\"\nexport longJson='{\n\
+                            \ \"status\": \"SUCCESS\",\n \"data\": {\n   \"pipelineExecutionSummary\"\
+                            : {\n     \"pipelineIdentifier\": \"SAM_Template\",\n\
+                            \     \"orgIdentifier\": \"mno\",\n     \"projectIdentifier\"\
+                            : \"bpi\",\n     \"planExecutionId\": \"Sla4F4i9RheFkcOQ\"\
+                            ,\n     \"name\": \"SAM Template\",\n     \"yamlVersion\"\
+                            : \"0\",\n     \"status\": \"Failed\",\n     \"tags\"\
+                            : [],\n     \"labels\": [],\n     \"executionTriggerInfo\"\
+                            : {\n       \"triggerType\": \"MANUAL\",\n       \"triggeredBy\"\
+                            : {\n         \"uuid\": \"ULEmY7EpQUSJC8yw\",\n      \
+                            \   \"identifier\": \"Walker\",\n         \"extraInfo\"\
+                            : {\n           \"email\": \"william.\",\n           \"\
+                            uniqueId\": \"\"\n         },\n         \"triggerIdentifier\"\
+                            : \"\",\n         \"triggerName\": \"\"\n       },\n \
+                            \      \"isRerun\": true,\n       \"rerunInfo\": {\n \
+                            \        \"rootExecutionId\": \"eTnoAFE7RtSs7CWADQw\"\
+                            ,\n         \"rootTriggerType\": \"MANUAL\",\n       \
+                            \  \"prevExecutionId\": \"eTnoAFEWvtSs7CWADQw\",\n   \
+                            \      \"prevTriggerType\": \"MANUAL\"\n       }\n   \
+                            \  },\n     \"failureInfo\": {\n       \"message\": \"\
+                            [Repo name is not set in CI codebase spec]\",\n      \
+                            \ \"failureTypeList\": [],\n       \"responseMessages\"\
+                            : [\n         {\n           \"code\": \"GENERAL_ERROR\"\
+                            ,\n           \"level\": \"ERROR\",\n           \"message\"\
+                            : \"[Repo name is not set in CI codebase spec]\",\n  \
+                            \         \"exception\": null,\n           \"failureTypes\"\
+                            : [],\n           \"additionalInfo\": {}\n         }\n\
+                            \       ]\n     },\n     \"moduleInfo\": {\n       \"\
+                            ci\": {\n         \"__recast\": \"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\"\
+                            ,\n         \"ciPipelineStageModuleInfo\": {\n       \
+                            \    \"__recast\": \"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                            ,\n           \"buildMultiplier\": 1.0,\n           \"\
+                            cpuTime\": 102113,\n           \"infraType\": \"KubernetesDirect\"\
+                            ,\n           \"osArch\": \"Amd64\",\n           \"osType\"\
+                            : \"Linux\",\n           \"resourceClass\": \"\",\n  \
+                            \         \"stageBuildTime\": 113602,\n           \"stageExecutionId\"\
+                            : \"oCjKG-APTnqwIV-6rwA\",\n           \"stageId\": \"\
+                            Build\",\n           \"stageName\": \"Build\",\n     \
+                            \      \"startTs\": 1740587274169\n         },\n     \
+                            \    \"branch\": \"\",\n         \"buildType\": \"tag\"\
+                            ,\n         \"ciEditionType\": \"ENTERPRISE\",\n     \
+                            \    \"ciExecutionInfoDTO\": {\n           \"__recast\"\
+                            : \"io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                            ,\n           \"author\": {\n             \"__recast\"\
+                            : \"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                            ,\n             \"id\": \"Anaka\",\n             \"name\"\
+                            : \"Anaka\",\n             \"email\": \"anaka\",\n   \
+                            \          \"avatar\": \"\"\n           },\n         \
+                            \  \"branch\": {\n             \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                            ,\n             \"commits\": [\n               {\n   \
+                            \              \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                            ,\n                 \"id\": \"109074e88f4b073e10052522d64bd761c\"\
+                            ,\n                 \"link\": \"\",\n                \
+                            \ \"message\": \"Update file prod_template.yaml\",\n \
+                            \                \"ownerName\": \"Anaka\",\n         \
+                            \        \"ownerId\": \"Anaka\",\n                 \"\
+                            ownerEmail\": \"anaka\",\n                 \"timeStamp\"\
+                            : 1740478654000\n               }\n             ]\n  \
+                            \         },\n           \"event\": \"branch\",\n    \
+                            \       \"userSource\": \"GIT\"\n         },\n       \
+                            \  \"ciLicenseType\": \"PAID\",\n         \"isPrivateRepo\"\
+                            : true,\n         \"repoName\": \"are-automation-lambdas/omni-disk-cleanup\"\
+                            ,\n         \"scmDetailsList\": [\n           {\n    \
+                            \         \"__recast\": \"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                            ,\n             \"scmUrl\": \"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                            ,\n             \"scmProvider\": \"Gitlab\",\n       \
+                            \      \"scmAuthType\": \"Http\",\n             \"scmHostType\"\
+                            : \"SaaS\"\n           }\n         ],\n         \"tag\"\
+                            : \"0.0.8\",\n         \"tiBuildDetailsList\": []\n  \
+                            \     }\n   }\n },\n \"metaData\": null,\n \"correlationId\"\
+                            : \"3092b7e3-31-4341-b749-b91e7de193f4\"\n}'\n\n\necho\
+                            \ \"Testing minified small Json\"\nexport minifiedSmallJson=\"\
+                            {\"status\":\"SUCCESS\",\"metaData\":null,\"correlationId\"\
+                            :\"3092b7e3-3f41-4341-b749-b91e7de193f4\"}\"\n\n\necho\
+                            \ \"Testing minified long Json\"\nexport minifiedLongJson='{\"\
+                            status\":\"SUCCESS\",\"data\":{\"pipelineExecutionSummary\"\
+                            :{\"pipelineIdentifier\":\"SAM_Template\",\"orgIdentifier\"\
+                            :\"mno\",\"projectIdentifier\":\"bpi\",\"planExecutionId\"\
+                            :\"Sla4F4i9RheFkcOQ\",\"name\":\"SAM Template\",\"yamlVersion\"\
+                            :\"0\",\"status\":\"Failed\",\"tags\":[],\"labels\":[],\"\
+                            executionTriggerInfo\":{\"triggerType\":\"MANUAL\",\"\
+                            triggeredBy\":{\"uuid\":\"ULEmY7EpQUSJC8yw\",\"identifier\"\
+                            :\"Walker\",\"extraInfo\":{\"email\":\"william.\",\"uniqueId\"\
+                            :\"\"},\"triggerIdentifier\":\"\",\"triggerName\":\"\"\
+                            },\"isRerun\":true,\"rerunInfo\":{\"rootExecutionId\"\
+                            :\"eTnoAFE7RtSs7CWADQw\",\"rootTriggerType\":\"MANUAL\"\
+                            ,\"prevExecutionId\":\"eTnoAFEWvtSs7CWADQw\",\"prevTriggerType\"\
+                            :\"MANUAL\"}},\"failureInfo\":{\"message\":\"[Repo name\
+                            \ is not set in CI codebase spec]\",\"failureTypeList\"\
+                            :[],\"responseMessages\":[{\"code\":\"GENERAL_ERROR\"\
+                            ,\"level\":\"ERROR\",\"message\":\"[Repo name is not set\
+                            \ in CI codebase spec]\",\"exception\":null,\"failureTypes\"\
+                            :[],\"additionalInfo\":{}}]},\"moduleInfo\":{\"ci\":{\"\
+                            __recast\":\"io.harness.ci.plan.cexecution.CIPipelineModuleInfo\"\
+                            ,\"ciPipelineStageModuleInfo\":{\"__recast\":\"io.harness.ci.plan.cCIPipelineStageModuleInfo\"\
+                            ,\"buildMultiplier\":1,\"cpuTime\":102113,\"infraType\"\
+                            :\"KubernetesDirect\",\"osArch\":\"Amd64\",\"osType\"\
+                            :\"Linux\",\"resourceClass\":\"\",\"stageBuildTime\":113602,\"\
+                            stageExecutionId\":\"oCjKG-APTnqwIV-6rwA\",\"stageId\"\
+                            :\"Build\",\"stageName\":\"Build\",\"startTs\":1740587274169},\"\
+                            branch\":\"\",\"buildType\":\"tag\",\"ciEditionType\"\
+                            :\"ENTERPRISE\",\"ciExecutionInfoDTO\":{\"__recast\":\"\
+                            io.harness.ci.pipeline.executions.beans.CIWebhookInfoDTO\"\
+                            ,\"author\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildAuthor\"\
+                            ,\"id\":\"Anaka\",\"name\":\"Anaka\",\"email\":\"anaka\"\
+                            ,\"avatar\":\"\"},\"branch\":{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildBranchHook\"\
+                            ,\"commits\":[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIBuildCommit\"\
+                            ,\"id\":\"109074e88f4b073e10052522d64bd761c\",\"link\"\
+                            :\"\",\"message\":\"Update file prod_template.yaml\",\"\
+                            ownerName\":\"Anaka\",\"ownerId\":\"Anaka\",\"ownerEmail\"\
+                            :\"anaka\",\"timeStamp\":1740478654000}]},\"event\":\"\
+                            branch\",\"userSource\":\"GIT\"},\"ciLicenseType\":\"\
+                            PAID\",\"isPrivateRepo\":true,\"repoName\":\"are-automation-lambdas/omni-disk-cleanup\"\
+                            ,\"scmDetailsList\":[{\"__recast\":\"io.harness.ci.pipeline.executions.beans.CIScmDetails\"\
+                            ,\"scmUrl\":\"dev-source-code/oss-ops/are-automation-lambdas/omni-disk-cleanup.git\"\
+                            ,\"scmProvider\":\"Gitlab\",\"scmAuthType\":\"Http\",\"\
+                            scmHostType\":\"SaaS\"}],\"tag\":\"0.0.8\",\"tiBuildDetailsList\"\
+                            :[]}}},\"metaData\":null,\"correlationId\":\"3092b7e3-31-4341-b749-b91e7de193f4\"\
+                            }}'\n\n\n\n\necho \"Testing Very long string\"\nexport\
+                            \ longString=\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n\
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\""
+                          outputVariables:
+                            - name: out
+                              type: String
+                              value: out
+                            - name: simpleMultiLine
+                              type: String
+                              value: simpleMultiLine
+                    - step:
+                        type: DownloadManifests
+                        name: DownloadManifests
+                        identifier: DownloadManifests
+                        spec: {}
+                        failureStrategies: []
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Prepare_Rollback
+                        type: ServerlessAwsLambdaPrepareRollbackV2
+                        name: Serverless Aws Lambda Prepare Rollback
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 2G
+                          preExecution: "cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]>\
+                            \ && npm install"
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Package
+                        type: ServerlessAwsLambdaPackageV2
+                        name: Serverless Aws Lambda Package
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          resources:
+                            limits:
+                              memory: 1G
+                          preExecution: "cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]>\
+                            \ && npm install"
+                          imagePullPolicy: Always
+                        when:
+                          stageStatus: Success
+                        failureStrategies: []
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Deploy
+                        type: ServerlessAwsLambdaDeployV2
+                        name: Serverless Aws Lambda Deploy
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 1G
+                          preExecution: "cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]>\
+                            \ && npm install"
+                          deployCommandOptions:
+                            - --aws-s3-accelerate
+                        timeout: 10m
+                        when:
+                          stageStatus: Success
+                        failureStrategies: []
+                  name: Serverless Step Group
+                  identifier: serverless_step_group
+                  stepGroupInfra:
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: <+ <+env.type> == "PreProduction"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest"
+                        >
+                      namespace: do-not-delete-serverless
+                      volumes: []
+                      automountServiceAccountToken: true
+                      harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest"
+                        >
+            rollbackSteps:
+              - stepGroup:
+                  identifier: serverless_rollback_step_group
+                  name: Serverless Rollback Step Group
+                  steps:
+                    - step:
+                        identifier: Serverless_Aws_Lambda_Rollback
+                        type: ServerlessAwsLambdaRollbackV2
+                        name: Serverless Aws Lambda Rollback
+                        timeout: 10m
+                        spec:
+                          connectorRef: ""
+                          image: ""
+                          imagePullPolicy: Always
+                          resources:
+                            limits:
+                              memory: 2G
+                  stepGroupInfra:
+                    spec:
+                      automountServiceAccountToken: true
+                      connectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                      harnessImageConnectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+                      namespace: do-not-delete-serverless
+                    type: KubernetesDirect
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+        variables:
+          - name: runtimLanguage
+            type: String
+            description: ""
+            required: false
+            value: nodejs20.x
+          - name: pluginType
+            type: Secret
+            description: ""
+            required: false
+            value: pluginType
+  variables:
+    - name: abc
+      type: Secret
+      description: ""
+      required: false
+      value: account.testingpiyush
+  identifier: SERVERLESS_TEST_PLUGIN_OVERRIDE_Multine_Test
+  name: SERVERLESS_TEST_PLUGIN_OVERRIDE_Multine_Test
