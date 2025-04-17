@@ -587,7 +587,7 @@ pipeline:
                           command: |-
                             echo "Testing single line with Shell"
                             export out="a,b,c"
-
+                            dd
 
                             echo "Testing Single Line having spaces at the end with Run Step "
                             export singleLineWithSpaces="a,b,c           "
