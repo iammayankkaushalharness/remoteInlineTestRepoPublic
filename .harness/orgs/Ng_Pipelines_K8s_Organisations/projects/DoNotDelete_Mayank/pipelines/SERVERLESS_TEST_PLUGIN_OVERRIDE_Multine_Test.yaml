@@ -807,9 +807,48 @@ pipeline:
                             - name: out
                               type: String
                               value: out
+                            - name: singleLineWithSpaces
+                              type: String
+                              value: singleLineWithSpaces
+                            - name: smallJson
+                              type: String
+                              value: smallJson
+                            - name: longJson
+                              type: String
+                              value: longJson
+                            - name: minifiedSmallJson
+                              type: String
+                              value: minifiedSmallJson
+                            - name: minifiedLongJson
+                              type: String
+                              value: minifiedLongJson
+                            - name: longString
+                              type: String
+                              value: longString
+                            - name: allASCIISingleLine
+                              type: String
+                              value: allASCIISingleLine
+                            - name: explicitNewLines
+                              type: String
+                              value: explicitNewLines
+                            - name: emptyMultiLines
+                              type: String
+                              value: emptyMultiLines
+                            - name: multiLineNestedDoubleQuotes
+                              type: String
+                              value: multiLineNestedDoubleQuotes
+                            - name: multiLineWithSingleQuotes
+                              type: String
+                              value: multiLineWithSingleQuotes
+                            - name: multiLineWithNestedQuotes
+                              type: String
+                              value: multiLineWithNestedQuotes
                             - name: simpleMultiLine
                               type: String
                               value: simpleMultiLine
+                            - name: multiLine
+                              type: String
+                              value: multiLine
                     - step:
                         type: DownloadManifests
                         name: DownloadManifests
