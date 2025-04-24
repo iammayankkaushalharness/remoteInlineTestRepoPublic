@@ -1,0 +1,111 @@
+template:
+  name: pipelineTemplate
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  spec:
+    stages:
+      - stage:
+          name: stage
+          identifier: stage
+          description: ""
+          type: Deployment
+          spec:
+            deploymentType: AWS_SAM
+            service:
+              serviceRef: svc
+            environment:
+              environmentRef: env
+              deployToAll: false
+              infrastructureDefinitions:
+                - identifier: infra
+            execution:
+              steps:
+                - stepGroup:
+                    steps:
+                      - step:
+                          type: Background
+                          name: dind
+                          identifier: dind
+                          spec:
+                            connectorRef: account.DockerHarnessHosted
+                            image: docker:dind
+                            shell: Sh
+                            privileged: true
+                          when:
+                            stageStatus: Success
+                      - step:
+                          type: DownloadManifests
+                          name: DownloadManifests
+                          identifier: DownloadManifests
+                          spec: {}
+                          failureStrategies: []
+                      - step:
+                          type: AwsSamBuild
+                          name: SAM Build
+                          identifier: SAM_Build
+                          spec:
+                            connectorRef: account.DockerHarnessHosted
+                            image: harnessdev/sam-build:1.82.0-latest
+                            imagePullPolicy: IfNotPresent
+                            samBuildDockerRegistryConnectorRef: account.DockerHarnessHosted
+                            settings: {}
+                            buildCommandOptions:
+                              - "--use-container"
+                          when:
+                            stageStatus: Success
+                          timeout: 10m
+                      - step:
+                          type: AwsSamDeploy
+                          name: SAM Deploy
+                          identifier: SAM_Deploy
+                          spec:
+                            connectorRef: account.DockerHarnessHosted
+                            image: harnessdev/sam-deploy:1.82.0-latest
+                            stackName: hellotheremayank
+                            imagePullPolicy: Always
+                            settings: {}
+                            deployCommandOptions:
+                              - "--capabilities CAPABILITY_IAM --resolve-s3 --no-fail-on-empty-changeset"
+                            envVariables: {}
+                            samVersion: v1.1
+                          when:
+                            stageStatus: Success
+                          timeout: 10m
+                    name: SAM Step Group
+                    identifier: sam_step_group
+                    stepGroupInfra:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: Mayank_K8s
+                        namespace: harness-delegate-ng
+                        initTimeout: 10m
+                        labels:
+                          mayank: kaushal
+                          kaushal: mayank
+                        annotations:
+                          var: variable1
+                        nodeSelector:
+                          iam.gke.io/gke-metadata-server-enabled: "true"
+                        automountServiceAccountToken: false
+                        priorityClassName: mayank-test
+                        tolerations: []
+                        containerSecurityContext:
+                          privileged: true
+                          allowPrivilegeEscalation: true
+                          runAsNonRoot: false
+                          readOnlyRootFilesystem: false
+                        harnessImageConnectorRef: Mayank_K8s
+                    sharedPaths:
+                      - /var/run
+                      - /var/lib/docker
+              rollbackSteps: []
+          tags: {}
+          failureStrategies:
+            - onFailure:
+                errors:
+                  - AllErrors
+                action:
+                  type: StageRollback
+  identifier: pipelineTemplate
+  versionLabel: v1
