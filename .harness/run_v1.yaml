@@ -1,0 +1,44 @@
+template:
+  name: run
+  type: Step
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  spec:
+    type: Container
+    spec:
+      connectorRef: account.harnessImage
+      image: library/nginx
+      command: export myVar=<+stage.variables.var1>
+      shell: Sh
+      infrastructure:
+        type: KubernetesDirect
+        spec:
+          connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+          namespace: default
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: 500Mi
+          annotations: {}
+          labels: {}
+          containerSecurityContext:
+            capabilities:
+              drop: []
+              add: []
+          nodeSelector: {}
+      reports:
+        type: JUnit
+        spec:
+          paths: []
+      outputVariables: []
+      envVariables: {}
+    timeout: 10m
+    commandFlags: []
+    policySets: []
+    strategy:
+      matrix:
+        service: <+json.list("service",<+pipeline.variables.serv>)>
+        nodeName: stage_<+matrix.service.name>_<+matrix.env.infra>
+        env: <+json.list("env",<+pipeline.variables.env>)>
+  identifier: run
+  versionLabel: v1
