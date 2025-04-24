@@ -1,0 +1,26 @@
+template:
+  name: ContainerStepGroupVolumeMounting
+  identifier: ContainerStepGroupVolumeMounting
+  versionLabel: v1
+  type: StepGroup
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    stageType: Deployment
+    steps:
+      - step:
+          type: Run
+          name: Run_1
+          identifier: Run_1
+          spec:
+            shell: Sh
+            command: sleep 10m
+    stepGroupInfra:
+      type: KubernetesDirect
+      spec:
+        connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+        namespace: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+        volumes: <+input>
+        automountServiceAccountToken: true
+        harnessImageConnectorRef: dockermayank
