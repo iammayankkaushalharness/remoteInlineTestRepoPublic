@@ -1,0 +1,50 @@
+---
+service:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  serviceDefinition:
+    spec:
+      manifests:
+      - manifest:
+          identifier: "A1"
+          type: "HelmChart"
+          spec:
+            store:
+              type: "Github"
+              spec:
+                connectorRef: "MayankGithub"
+                gitFetchType: "Branch"
+                folderPath: "k8s/manifests/helm/steady-state-manifest/"
+                repoName: "manifestPlayground"
+                branch: "main"
+            subChartPath: ""
+            valuesPaths:
+            - "k8s/manifests/helm/steady-state-manifest/values2ddd.yaml"
+            optionalValuesYaml: true
+            skipResourceVersioning: false
+            enableDeclarativeRollback: false
+            helmVersion: "V3"
+            fetchHelmChartMetadata: false
+            commandFlags:
+            - commandType: "Upgrade"
+              flag: "<+input>"
+            - commandType: "Install"
+              flag: "<+input>"
+      - manifest:
+          identifier: "A2"
+          type: "Values"
+          spec:
+            store:
+              type: "Github"
+              spec:
+                connectorRef: "MayankGithub"
+                gitFetchType: "Branch"
+                paths: "<+input>"
+                repoName: "manifestPlayground"
+                branch: "main"
+            optionalValuesYaml: false
+    type: "NativeHelm"
+  description: ""
+  tags: {}
+  identifier: "helm_ns_override_namespace_yaml2"
+  name: "helm_ns_override_namespace_yaml2"
