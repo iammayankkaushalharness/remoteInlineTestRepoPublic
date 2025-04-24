@@ -1,0 +1,130 @@
+pipeline:
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: Basic_SameAsRun_Count
+        identifier: Basic_SameAsRun_Count
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Elastigroup
+          service:
+            serviceRef: SpotServiceC0OfZ
+          environment:
+            environmentRef: SpotEnvcTce7
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: SpotInfraDmO0D
+          execution:
+            steps:
+              - stepGroup:
+                  name: asdfasdf
+                  identifier: asdfasdf
+                  steps:
+                    - step:
+                        name: Elastigroup Setup
+                        identifier: Elastigroup_Setup
+                        type: ElastigroupSetup
+                        timeout: 10m
+                        spec:
+                          name: automation_app_RoOuZ
+                          instances:
+                            type: CurrentRunning
+                            spec: {}
+                          delegateSelectors:
+                            - <+stage.variables.delStage>
+              - stepGroup:
+                  name: asdfsdf
+                  identifier: asdfsdf
+                  steps:
+                    - step:
+                        type: ElastigroupDeploy
+                        name: Elastigroup Deploy
+                        identifier: Elastigroup_Deploy
+                        spec:
+                          newService:
+                            spec:
+                              count: 1
+                            type: Count
+                          delegateSelectors:
+                            - <+stage.variables.delStage>
+                        timeout: 15m
+              - stepGroup:
+                  name: adsfsdfasdfwef
+                  identifier: adsfsdfasdfwef
+                  steps:
+                    - step:
+                        type: ShellScript
+                        name: ShellScript_1
+                        identifier: ShellScript_1
+                        spec:
+                          shell: Bash
+                          executionTarget: {}
+                          source:
+                            type: Inline
+                            spec:
+                              script: exit 1
+                          environmentVariables: []
+                          outputVariables: []
+                        timeout: 10m
+                    - step:
+                        type: ElastigroupDeploy
+                        name: ElastigroupDeploy_2
+                        identifier: ElastigroupDeploy_2
+                        spec:
+                          newService:
+                            spec:
+                              percentage: 100
+                            type: Percentage
+                          delegateSelectors:
+                            - <+stage.variables.delStage>
+                        timeout: 10m
+            rollbackSteps:
+              - stepGroup:
+                  name: asdfsdf
+                  identifier: asdfsdf
+                  steps:
+                    - step:
+                        name: Elastigroup Rollback
+                        identifier: Elastigroup_Rollback
+                        type: ElastigroupRollback
+                        timeout: 10m
+                        spec:
+                          delegateSelectors:
+                            - <+stage.variables.delStage>
+              - stepGroup:
+                  name: asdfsdfasd
+                  identifier: asdfsdfasd
+                  steps:
+                    - step:
+                        type: ElastigroupRollback
+                        name: ElastigroupRollback_2
+                        identifier: ElastigroupRollback_2
+                        spec:
+                          delegateSelectors:
+                            - <+stage.variables.delStage>
+                        timeout: 10m
+                  when:
+                    stageStatus: Success
+                    condition: "false"
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+        variables:
+          - name: delStage
+            type: String
+            description: ""
+            required: false
+            value: ogib4-eks-cdplay-del-qa
+        delegateSelectors:
+          - automation-pipeline-cdng-delegate
+  delegateSelectors:
+    - kubernetes-delegate
+  identifier: Basic_SameAsRun_Count_2_Clone
+  name: Basic_spottest-sowmya 2 - Clone
