@@ -1,0 +1,5 @@
+service:
+  name: helm_mayank
+  identifier: helm_mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
