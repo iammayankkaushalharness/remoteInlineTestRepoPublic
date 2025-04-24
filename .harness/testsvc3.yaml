@@ -1,0 +1,22 @@
+---
+service:
+  serviceDefinition:
+    type: "Elastigroup"
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: "<+input>"
+          sources:
+          - identifier: "testawsartifact"
+            spec:
+              connectorRef: "org.awsConnectorReadAccess"
+              region: "us-east-1"
+              version: "ved-ami3"
+            type: "AmazonMachineImage"
+  gitOpsEnabled: false
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  identifier: "testsvc3"
+  description: ""
+  tags: {}
+  name: "testsvc3"
