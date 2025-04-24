@@ -1,0 +1,145 @@
+template:
+  name: HelloAzureTest
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  spec:
+    stages:
+      - stage:
+          name: stage1
+          identifier: stage1
+          description: ""
+          type: Deployment
+          spec:
+            deploymentType: AzureFunction
+            service:
+              serviceRef: AzureContainerStep
+              serviceInputs:
+                serviceDefinition:
+                  type: AzureFunction
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifactory
+                        sources:
+                          - identifier: artifactory
+                            type: ArtifactoryRegistry
+                            spec:
+                              artifactPath: rajAZFunctionAppJava.zip
+                    variables:
+                      - name: var1
+                        type: String
+                        value: <+input>
+              failureStrategies:
+                - onFailure:
+                    errors:
+                      - AllErrors
+                    action:
+                      type: MarkAsFailure
+            environment:
+              environmentRef: azurecontainerStep
+              deployToAll: false
+              infrastructureDefinitions:
+                - identifier: azureinfra
+              failureStrategies:
+                - onFailure:
+                    errors:
+                      - AllErrors
+                    action:
+                      type: MarkAsFailure
+            execution:
+              steps:
+                - stepGroup:
+                    steps:
+                      - step:
+                          identifier: Azure_Function_Deploy
+                          type: AzureFunctionDeploy
+                          name: Azure Function Deploy
+                          spec:
+                            connectorRef: account.harnessImage
+                            image: harnessdev/azure-function-plugin:1.0.15-linux-amd64
+                            imagePullPolicy: Always
+                            resources:
+                              limits:
+                                memory: 1G
+                            functionApp: rajFunctionAppContainerJSOne
+                            deploymentSlot: rajFunctionAppContainerJSOne-staging
+                          timeout: 10m
+                          when:
+                            stageStatus: Success
+                      - step:
+                          type: Run
+                          name: Run_1
+                          identifier: Run_1
+                          spec:
+                            connectorRef: account.harnessImage
+                            image: harnessdev/azure-function-plugin:1.0.15-linux-amd64
+                            shell: Sh
+                            command: exit 1
+                    name: Azure Function Step Group
+                    identifier: Azure_Function_step_group
+                    stepGroupInfra:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+                        namespace: default
+              rollbackSteps:
+                - stepGroup:
+                    identifier: azure_function_step_group
+                    name: Azure Function Step Group
+                    steps:
+                      - step:
+                          identifier: azure_function_step_rollback
+                          type: AzureFunctionRollback
+                          name: Azure Function Rollback
+                          timeout: 10m
+                          spec:
+                            connectorRef: account.harnessImage
+                            image: harnessdev/azure-function-plugin:1.0.15-linux-amd64
+                            imagePullPolicy: Always
+                            resources:
+                              limits:
+                                memory: 2G
+                    stepGroupInfra:
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+                        namespace: default
+          tags: {}
+          failureStrategies:
+            - onFailure:
+                errors:
+                  - AllErrors
+                action:
+                  type: StageRollback
+      - stage:
+          name: helllocustom
+          identifier: helllocustom
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo hi
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+            environment:
+              environmentRef: <+input>
+              deployToAll: false
+              environmentInputs: <+input>
+              serviceOverrideInputs: <+input>
+              infrastructureDefinitions: <+input>
+          tags: {}
+  identifier: HelloAzureTest
+  versionLabel: v1
