@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "DoNotDelete_Mayank"
+  type: "Production"
+  identifier: "MayankOIDC3"
+  tags: {}
+  name: "MayankOIDC3"
