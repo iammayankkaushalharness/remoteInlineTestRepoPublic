@@ -1,0 +1,77 @@
+pipeline:
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: Deploy
+        identifier: Deploy
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: |-
+                          echo <+secrets.getValue("dummy-2")>
+                          STRING="<+secrets.getValue("dummy-2")>"
+                                                      # Reverse the string using rev
+                                                      REVERSED_STRING=$(echo "$STRING" | rev)
+                                                      echo $REVERSED_STRING
+                          var1="<+pipeline.stages.dep.spec.execution.steps.ShellScript_1.output.outputVariables.abc>"
+                          echo "$var1"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+              - stepGroup:
+                  name: SAMPLE
+                  identifier: SAMPLE
+                  steps:
+                    - step:
+                        type: Run
+                        name: Run_1
+                        identifier: Run_1
+                        spec:
+                          connectorRef: account.harnessImage
+                          image: library/nginx
+                          shell: Sh
+                          command: sleep 10m
+                  stepGroupInfra:
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: org.KubernetesConnectorWithInclusterDelegateForAutomationTest
+                      namespace: do-not-delete-container-step-cd
+                      volumes: <+input>
+                      automountServiceAccountToken: true
+                      harnessImageConnectorRef: org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest
+            rollbackSteps: []
+          serviceDependencies: []
+        tags: {}
+        variables:
+          - name: configMap
+            type: String
+            description: ""
+            required: false
+            value: dummy-1
+          - name: secret
+            type: Secret
+            description: ""
+            required: false
+            value: dummy-2
+  variables:
+    - name: pvcsecret
+      type: Secret
+      description: ""
+      required: false
+      value: pvcclaimname
+  identifier: CDS108900_not_main
+  name: CDS-108900_not_main
