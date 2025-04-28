@@ -1,0 +1,6 @@
+pipeline:
+  name: MAYANK123
+  identifier: MAYANK123
+  projectIdentifier: DoNotDelete_Mayank
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
