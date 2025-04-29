@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "Ng_Pipelines_K8s_Organisations"
+  projectIdentifier: "MayankRemoteEntitiesTest"
+  type: "Production"
+  tags: {}
+  identifier: "RemoteMainAccountLeveltoaccount"
+  name: "RemoteMainAccountLeveltoaccount"
