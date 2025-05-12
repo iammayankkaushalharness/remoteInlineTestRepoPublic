@@ -1,0 +1,7 @@
+environment:
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  identifier: lambdav2
+  tags: {}
+  name: lambdav2
+  type: PreProduction
