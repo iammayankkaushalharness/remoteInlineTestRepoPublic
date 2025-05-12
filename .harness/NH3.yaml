@@ -1,0 +1,49 @@
+service:
+  name: NH3
+  identifier: NH3
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Mayank
+  gitOpsEnabled: false
+  serviceDefinition:
+    type: NativeHelm
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest
+            type: HelmChart
+            spec:
+              optionalValuesYaml: true
+              store:
+                type: Git
+                spec:
+                  connectorRef: org.GitRepoHttpConnectorV2ForAutomationTest
+                  gitFetchType: Branch
+                  folderPath: k8s/manifests/helm/single-workflow-ns-override/simpleExampleForHelmDynamic/
+                  repoName: PipelinesNgAutomation.git
+                  branch: master
+              valuesPaths:
+                - k8s/manifests/helm/single-workflow-ns-override/simpleExampleForHelmDynamic/values.yaml
+              skipResourceVersioning: false
+              helmVersion: V3
+              commandFlags:
+                - commandType: List
+                  flag: "--all-namespaces"
+                - commandType: History
+                  flag: "--max 10"
+                - commandType: Rollback
+                  flag: "--cleanup-on-fail"
+        - manifest:
+            identifier: Values
+            type: Values
+            spec:
+              optionalValuesYaml: true
+              store:
+                type: Git
+                spec:
+                  connectorRef: org.GitRepoHttpConnectorV2ForAutomationTest
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/manifests/helm/single-workflow-ns-override/simpleExampleForHelmDynamic/values.yaml
+                  repoName: PipelinesNgAutomation.git
+                  branch: master
+              optional: false
