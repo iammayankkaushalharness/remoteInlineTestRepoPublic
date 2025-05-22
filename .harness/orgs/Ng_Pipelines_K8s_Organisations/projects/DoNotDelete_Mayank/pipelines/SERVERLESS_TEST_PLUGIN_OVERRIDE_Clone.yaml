@@ -54,7 +54,7 @@ pipeline:
                               echo "not matched"
                             fi
                           envVariables:
-                            val: <+secret.getValue("val")>
+                            val: <+secrets.getValue("val")>
                   name: Serverless Step Group
                   identifier: serverless_step_group
                   stepGroupInfra:
