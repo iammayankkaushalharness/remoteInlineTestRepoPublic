@@ -274,19 +274,14 @@ pipeline:
                 type: ServerlessAwsLambda
                 spec:
                   pluginInfo:
-                    serverlessVersion: <+input>
                     runtimeLanguage: python3.12
+                    serverlessVersion: <+input>
             gitBranch: helloMayankServerless
           environment:
             environmentRef: ServerlessEnv_BfsTH
             deployToAll: false
             infrastructureDefinitions:
               - identifier: infra_oqwYF
-                inputs:
-                  identifier: infra_oqwYF
-                  type: ServerlessAwsLambda
-                  spec:
-                    stage: <+input>
           execution:
             steps:
               - step:
