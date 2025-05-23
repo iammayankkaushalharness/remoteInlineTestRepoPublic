@@ -786,7 +786,7 @@ pipeline:
                           resources:
                             limits:
                               memory: 2G
-                          preExecution: cd /harness/<+pipeline.stages.Deploy.spec.manifests.m1.identifier>/<+pipeline.stages.Deploy.spec.manifests.m1.store.paths[0]> && npm install
+                          preExecution: <+input>
                     - step:
                         identifier: Serverless_Aws_Lambda_Package
                         type: ServerlessAwsLambdaPackageV2
