@@ -320,6 +320,8 @@ pipeline:
                       namespace: do-not-delete-serverless
                       volumes: []
                       automountServiceAccountToken: true
+                      containerSecurityContext:
+                        privileged: true
                       harnessImageConnectorRef: <+ <+env.type> == "Production"?"org.KubernetesConnectorWithInclusterDelegateForSamAutomationTest":"org.KubernetesEKSConnectorForAutomationTest" >
               - step:
                   type: Container
