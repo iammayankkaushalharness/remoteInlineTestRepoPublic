@@ -5,7 +5,7 @@ service:
     spec:
       artifacts:
         primary:
-          primaryArtifactRef: <+input>
+          primaryArtifactRef: artifactory
           sources:
             - spec:
                 connectorRef: org.DockerConnector3AuthForAutomationTest
