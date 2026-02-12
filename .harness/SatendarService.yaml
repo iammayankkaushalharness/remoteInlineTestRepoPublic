@@ -3,3 +3,5 @@ service:
   identifier: SatendarService
   orgIdentifier: Ng_Pipelines_K8s_Organisations
   projectIdentifier: DoNotDelete_Mayank
+  tags:
+    asd: def
