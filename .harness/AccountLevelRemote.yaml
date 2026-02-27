@@ -1,0 +1,8 @@
+---
+environment:
+  orgIdentifier: "default"
+  projectIdentifier: "MayankCloneInlineTests"
+  type: "PreProduction"
+  identifier: "AccountLevelRemote"
+  tags: {}
+  name: "AccountLevelRemote"
